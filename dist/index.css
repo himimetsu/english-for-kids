@@ -3,6 +3,14 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.sections .hidden {
+  display: none;
+}
+
+.td {
+  text-decoration: underline;
+}
+
 .container {
   max-width: 1400px;
   margin: 50px auto;
@@ -51,4 +59,38 @@ body {
   color: white;
   cursor: pointer;
   font-weight: 600;
+}
+
+.main-content {
+  margin-top: 50px;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  margin: 20px 0;
+}
+
+.card figure {
+  margin: 0;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+.card figure:hover {
+  box-shadow: 0 0 10px gray;
+}
+
+.card figcaption {
+  padding: 10px 5px;
+  border-top: 2px solid black;
+}
+
+.card img {
+  max-width: 300px;
+  max-height: 200px;
 }
