@@ -13,6 +13,6 @@ export class CallMenu {
     menu.classList.toggle('openMenu')
     const header = document.getElementsByClassName('header')[0]
     const menuItems = document.getElementsByClassName('menu-items')[0]
-    menuItems.setAttribute('style', `margin-top: ${header.clientHeight + header.offsetTop + 10}px`)
+    menuItems.setAttribute('style', `margin-top: ${header.clientHeight + header.offsetTop + 30}px`)
   }
 }
