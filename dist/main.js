@@ -377,9 +377,7 @@ var createBtn = function createBtn() {
   modeSwitch.classList.add('onoffswitch');
   modeSwitch.appendChild(createInput());
   modeSwitch.appendChild(createLabel());
-  modeSwitch.addEventListener('click', function () {
-    toggleMenu();
-  });
+  modeSwitch.addEventListener('click', toggleMenu());
   return modeSwitch;
 };
 

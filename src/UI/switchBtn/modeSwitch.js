@@ -33,7 +33,7 @@ const createBtn = () => {
   modeSwitch.classList.add('onoffswitch')
   modeSwitch.appendChild(createInput())
   modeSwitch.appendChild(createLabel())
-  modeSwitch.addEventListener('click', () => { toggleMenu() })
+  modeSwitch.addEventListener('click', toggleMenu())
 
   return modeSwitch
 }
