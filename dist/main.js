@@ -92,200 +92,8 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./src/modules/container.js
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Container = /*#__PURE__*/function () {
-  function Container() {
-    _classCallCheck(this, Container);
-  }
-
-  _createClass(Container, null, [{
-    key: "createContainer",
-    value: function createContainer() {
-      var container = document.createElement('div');
-      container.classList.add('container');
-      return container;
-    }
-  }]);
-
-  return Container;
-}();
-// CONCATENATED MODULE: ./src/UI/switchBtn/modeSwitch.js
-function modeSwitch_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function modeSwitch_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function modeSwitch_createClass(Constructor, protoProps, staticProps) { if (protoProps) modeSwitch_defineProperties(Constructor.prototype, protoProps); if (staticProps) modeSwitch_defineProperties(Constructor, staticProps); return Constructor; }
-
-var ModeSwitch = /*#__PURE__*/function () {
-  function ModeSwitch() {
-    modeSwitch_classCallCheck(this, ModeSwitch);
-  }
-
-  modeSwitch_createClass(ModeSwitch, null, [{
-    key: "createBtn",
-    value: function createBtn() {
-      var modeSwitch = document.createElement('div');
-      modeSwitch.classList.add('onoffswitch');
-      var input = document.createElement('input');
-      input.classList.add('onoffswitch-checkbox');
-      input.setAttribute('id', 'myonoffswitch');
-      input.setAttribute('type', 'checkbox');
-      input.setAttribute('name', 'onoffswitch');
-      input.setAttribute('checked', 'true');
-      modeSwitch.appendChild(input);
-      var label = document.createElement('label');
-      label.classList.add('onoffswitch-label');
-      label.setAttribute('for', 'myonoffswitch');
-      var firstSpan = document.createElement('span');
-      firstSpan.classList.add('onoffswitch-inner');
-      var secondSpan = document.createElement('span');
-      secondSpan.classList.add('onoffswitch-switch');
-      label.appendChild(firstSpan);
-      label.appendChild(secondSpan);
-      modeSwitch.appendChild(label);
-      modeSwitch.addEventListener('click', function () {
-        ModeSwitch.toggleMenu();
-      });
-      return modeSwitch;
-    }
-  }, {
-    key: "toggleMenu",
-    value: function toggleMenu() {
-      var menu = document.getElementsByClassName('menu')[0];
-      menu.classList.remove('openMenu');
-    }
-  }]);
-
-  return ModeSwitch;
-}();
-// CONCATENATED MODULE: ./src/UI/callMenu/callMenu.js
-function callMenu_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function callMenu_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function callMenu_createClass(Constructor, protoProps, staticProps) { if (protoProps) callMenu_defineProperties(Constructor.prototype, protoProps); if (staticProps) callMenu_defineProperties(Constructor, staticProps); return Constructor; }
-
-var CallMenu = /*#__PURE__*/function () {
-  function CallMenu() {
-    callMenu_classCallCheck(this, CallMenu);
-  }
-
-  callMenu_createClass(CallMenu, null, [{
-    key: "createCallMenu",
-    value: function createCallMenu() {
-      var callMenu = document.createElement('div');
-      callMenu.classList.add('btn-call-menu');
-      callMenu.addEventListener('click', function () {
-        CallMenu.toggleMenu();
-      });
-      return callMenu;
-    }
-  }, {
-    key: "toggleMenu",
-    value: function toggleMenu() {
-      var callMenu = document.getElementsByClassName('btn-call-menu')[0];
-      callMenu.classList.toggle('active');
-      var menu = document.getElementsByClassName('menu')[0];
-      menu.classList.toggle('openMenu');
-      var header = document.getElementsByClassName('header')[0];
-      var menuItems = document.getElementsByClassName('menu-items')[0];
-      menuItems.setAttribute('style', "margin-top: ".concat(header.clientHeight + header.offsetTop + 30, "px"));
-    }
-  }]);
-
-  return CallMenu;
-}();
-// CONCATENATED MODULE: ./src/modules/header.js
-function header_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function header_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function header_createClass(Constructor, protoProps, staticProps) { if (protoProps) header_defineProperties(Constructor.prototype, protoProps); if (staticProps) header_defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-var header_Header = /*#__PURE__*/function () {
-  function Header() {
-    header_classCallCheck(this, Header);
-  }
-
-  header_createClass(Header, null, [{
-    key: "createHeader",
-    value: function createHeader() {
-      var header = document.createElement('div');
-      header.classList.add('header');
-      header.appendChild(CallMenu.createCallMenu());
-      header.appendChild(ModeSwitch.createBtn());
-      return header;
-    }
-  }]);
-
-  return Header;
-}();
-// CONCATENATED MODULE: ./src/modules/menu.js
-function menu_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function menu_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function menu_createClass(Constructor, protoProps, staticProps) { if (protoProps) menu_defineProperties(Constructor.prototype, protoProps); if (staticProps) menu_defineProperties(Constructor, staticProps); return Constructor; }
-
-var Menu = /*#__PURE__*/function () {
-  function Menu() {
-    menu_classCallCheck(this, Menu);
-  }
-
-  menu_createClass(Menu, null, [{
-    key: "createMenu",
-    value: function createMenu() {
-      var menu = document.createElement('div');
-      var list = document.createElement('ul');
-      list.classList.add('menu-items');
-      menu.classList.add('menu');
-      var listItems = ['Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)', 'Animal (Set A)', 'Animal (Set B)', 'Adjective', 'Clothes', 'Emotions'];
-      listItems.map(function (item) {
-        var link = document.createElement('li');
-        var a = document.createElement('a');
-        a.addEventListener('click', function () {
-          Menu.selectedSection();
-        });
-        link.classList.add('item');
-        var textLink = document.createTextNode("".concat(item));
-        a.appendChild(textLink);
-        link.appendChild(a);
-        list.appendChild(link);
-      });
-      menu.appendChild(list);
-      return menu;
-    }
-  }, {
-    key: "selectedSection",
-    value: function selectedSection() {
-      console.log("\u0412\u044B\u0431\u0440\u0430\u043D \u0440\u0430\u0437\u0434\u0435\u043B: ".concat(event.target.innerText));
-      var allTd = Array.from(document.getElementsByClassName('td'));
-      allTd.map(function (td) {
-        return td.classList.remove('td');
-      });
-      event.target.classList.add('td');
-      var menuBtn = document.getElementsByClassName('menu openMenu');
-      var sections = Array.from(document.getElementsByClassName('section'));
-      menuBtn[0].classList.remove('openMenu');
-      sections.map(function (section) {
-        return section.classList.add('hidden');
-      });
-      document.getElementsByClassName(event.target.innerText.replace(/\s/ig, '-'))[0].classList.remove('hidden');
-    }
-  }]);
-
-  return Menu;
-}();
 // CONCATENATED MODULE: ./src/DATA/cards.js
-var cards = [['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'], [{
+var cards = [[['Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)', 'Animal (Set A)', 'Animal (Set B)', 'Adjective', 'Clothes', 'Emotions'], ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions']], [[{
   word: 'cry',
   translation: 'плакать',
   image: 'img/cry.jpg',
@@ -525,170 +333,230 @@ var cards = [['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set
   translation: 'смех',
   image: 'img/laugh.jpg',
   audioSrc: 'audio/laugh.mp3'
-}]];
+}]]];
+/* harmony default export */ var DATA_cards = (cards);
+// CONCATENATED MODULE: ./src/modules/container.js
+var createContainer = function createContainer() {
+  var container = document.createElement('div');
+  container.classList.add('container');
+  return container;
+};
+
+/* harmony default export */ var container = (createContainer);
+// CONCATENATED MODULE: ./src/UI/switchBtn/modeSwitch.js
+var toggleMenu = function toggleMenu() {
+  var menu = document.getElementsByClassName('menu')[0];
+  menu.classList.remove('openMenu');
+};
+
+var createInput = function createInput() {
+  var input = document.createElement('input');
+  input.classList.add('onoffswitch-checkbox');
+  input.setAttribute('id', 'myonoffswitch');
+  input.setAttribute('type', 'checkbox');
+  input.setAttribute('name', 'onoffswitch');
+  input.setAttribute('checked', 'true');
+  return input;
+};
+
+var createLabel = function createLabel() {
+  var firstSpan = document.createElement('span');
+  firstSpan.classList.add('onoffswitch-inner');
+  var secondSpan = document.createElement('span');
+  secondSpan.classList.add('onoffswitch-switch');
+  var label = document.createElement('label');
+  label.classList.add('onoffswitch-label');
+  label.setAttribute('for', 'myonoffswitch');
+  label.appendChild(firstSpan);
+  label.appendChild(secondSpan);
+  return label;
+};
+
+var createBtn = function createBtn() {
+  var modeSwitch = document.createElement('div');
+  modeSwitch.classList.add('onoffswitch');
+  modeSwitch.appendChild(createInput());
+  modeSwitch.appendChild(createLabel());
+  modeSwitch.addEventListener('click', function () {
+    toggleMenu();
+  });
+  return modeSwitch;
+};
+
+/* harmony default export */ var modeSwitch = (createBtn);
+// CONCATENATED MODULE: ./src/UI/callMenu/callMenu.js
+var createCallMenu = function createCallMenu() {
+  var callMenu = document.createElement('div');
+  callMenu.classList.add('btn-call-menu');
+  callMenu.addEventListener('click', function () {
+    var tempMenu = document.getElementsByClassName('btn-call-menu')[0];
+    tempMenu.classList.toggle('active');
+    var menu = document.getElementsByClassName('menu')[0];
+    menu.classList.toggle('openMenu');
+    var header = document.getElementsByClassName('header')[0];
+    var menuItems = document.getElementsByClassName('menu-items')[0];
+    menuItems.setAttribute('style', "margin-top: ".concat(header.clientHeight + header.offsetTop + 30, "px"));
+  });
+  return callMenu;
+};
+
+/* harmony default export */ var callMenu = (createCallMenu);
+// CONCATENATED MODULE: ./src/modules/header.js
+
+
+
+var header_createHeader = function createHeader() {
+  var header = document.createElement('div');
+  header.classList.add('header');
+  header.appendChild(callMenu());
+  header.appendChild(modeSwitch());
+  return header;
+};
+
+/* harmony default export */ var modules_header = (header_createHeader);
 // CONCATENATED MODULE: ./src/UI/card/card.js
-function card_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var card_toggleMenu = function toggleMenu(event) {
+  document.getElementsByClassName('main-page')[0].classList.add('hidden');
+  document.getElementsByClassName('menu')[0].classList.remove('openMenu');
+  var currentClick = event.target.parentNode.parentNode.innerText.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-');
+  var sections = Array.from(document.getElementsByClassName('section'));
+  sections.map(function (section) {
+    return section.classList.add('hidden');
+  });
+  document.getElementsByClassName("".concat(currentClick))[0].classList.remove('hidden');
+};
 
-function card_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+var createCard = function createCard(word, path, key) {
+  var card = document.createElement('div');
+  card.classList.add('card');
+  var figure = document.createElement('figure'),
+      img = document.createElement('img');
 
-function card_createClass(Constructor, protoProps, staticProps) { if (protoProps) card_defineProperties(Constructor.prototype, protoProps); if (staticProps) card_defineProperties(Constructor, staticProps); return Constructor; }
-
-var Card = /*#__PURE__*/function () {
-  function Card() {
-    card_classCallCheck(this, Card);
+  if (key) {
+    card.addEventListener('click', function (event) {
+      return card_toggleMenu(event);
+    });
+    img.src = "../../../dist/images/cards/".concat(path, ".jpg");
+  } else {
+    img.src = "../../../dist/images/cards/".concat(word, ".jpg");
   }
 
-  card_createClass(Card, null, [{
-    key: "createCard",
-    value: function createCard(word, path) {
-      var card = document.createElement('div');
-      card.classList.add('card');
-      var figure = document.createElement('figure');
-      var img = document.createElement('img');
+  var figcaption = document.createElement('figcaption');
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  var textFigure = document.createTextNode("".concat(word));
+  figcaption.appendChild(textFigure);
+  card.appendChild(figure);
+  return card;
+};
 
-      if (path) {
-        img.src = "";
-      } else {
-        img.src = "../../../dist/img/".concat(word, ".jpg");
-      }
-
-      var figcaption = document.createElement('figcaption');
-      figure.appendChild(img);
-      figure.appendChild(figcaption);
-      var textFigure = document.createTextNode("".concat(word));
-      figcaption.appendChild(textFigure);
-      card.appendChild(figure);
-      return card;
-    }
-  }]);
-
-  return Card;
-}();
+/* harmony default export */ var card_card = (createCard);
 // CONCATENATED MODULE: ./src/modules/section.js
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function section_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function section_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function section_createClass(Constructor, protoProps, staticProps) { if (protoProps) section_defineProperties(Constructor.prototype, protoProps); if (staticProps) section_defineProperties(Constructor, staticProps); return Constructor; }
 
 
+var section_createSection = function createSection(arrSection, arrCards) {
+  var sections = document.createElement('div');
+  sections.classList.add('sections');
+  arrSection.map(function (item, index) {
+    var section = document.createElement('div');
+    arrCards[index].map(function (card) {
+      section.appendChild(card_card(card.word, item));
+    });
+    section.classList.add('section');
+    section.classList.add('hidden');
+    section.classList.add("".concat(item.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-')));
+    sections.appendChild(section);
+  });
+  return sections;
+};
 
-var section_Section = /*#__PURE__*/function () {
-  function Section() {
-    section_classCallCheck(this, Section);
-  }
-
-  section_createClass(Section, null, [{
-    key: "createSection",
-    value: function createSection() {
-      var allSections = Array.apply(void 0, _toConsumableArray(cards[0]));
-      var allCards = [];
-      cards.map(function (item, i) {
-        if (cards[i + 1]) {
-          allCards.push(cards[i + 1]);
-        }
-      });
-      var sections = document.createElement('div');
-      sections.classList.add('sections');
-      allSections.map(function (item, i) {
-        var section = document.createElement('div');
-        allCards[i].map(function (card) {
-          section.appendChild(Card.createCard(card.word));
-        });
-        section.classList.add('section');
-        section.classList.add('hidden');
-        section.classList.add("".concat(item.replace(/\s/ig, '-')));
-        sections.appendChild(section);
-      });
-      return sections;
-    }
-  }]);
-
-  return Section;
-}();
+/* harmony default export */ var modules_section = (section_createSection);
 // CONCATENATED MODULE: ./src/modules/main-content.js
-function main_content_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function main_content_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function main_content_createClass(Constructor, protoProps, staticProps) { if (protoProps) main_content_defineProperties(Constructor.prototype, protoProps); if (staticProps) main_content_defineProperties(Constructor, staticProps); return Constructor; }
 
 
-var main_content_MainContent = /*#__PURE__*/function () {
-  function MainContent() {
-    main_content_classCallCheck(this, MainContent);
-  }
+var main_content_createMainContent = function createMainContent(arrSections, arrCards, key) {
+  var content = document.createElement('div');
+  content.classList.add('main-content');
+  content.appendChild(modules_section(arrSections, arrCards, key));
+  return content;
+};
 
-  main_content_createClass(MainContent, null, [{
-    key: "createContent",
-    value: function createContent() {
-      var content = document.createElement('div');
-      content.classList.add('main-content');
-      content.appendChild(section_Section.createSection());
-      return content;
-    }
-  }]);
-
-  return MainContent;
-}();
+/* harmony default export */ var main_content = (main_content_createMainContent);
 // CONCATENATED MODULE: ./src/modules/main-page.js
-function main_page_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function main_page_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function main_page_createClass(Constructor, protoProps, staticProps) { if (protoProps) main_page_defineProperties(Constructor.prototype, protoProps); if (staticProps) main_page_defineProperties(Constructor, staticProps); return Constructor; }
 
 
-
-var main_page_MainPage = /*#__PURE__*/function () {
-  function MainPage() {
-    main_page_classCallCheck(this, MainPage);
-  }
-
-  main_page_createClass(MainPage, null, [{
-    key: "createMainPage",
-    value: function createMainPage() {
-      var mainPage = document.createElement('div');
-      mainPage.classList.add('main-page');
-      var allCategories = [];
-      cards.map(function (item, i) {
-        if (cards[0][i]) {
-          allCategories.push(cards[0][i]);
-        }
-      });
-      allCategories.map(function (category) {
-        mainPage.appendChild(Card.createCard(category));
-      });
-      return mainPage;
+var main_page_createMainPage = function createMainPage(arrSection) {
+  var mainPage = document.createElement('div');
+  mainPage.classList.add('main-page');
+  var allCategories = [];
+  arrSection.map(function (item, index) {
+    if (arrSection[index]) {
+      allCategories.push(arrSection[index]);
     }
-  }]);
 
-  return MainPage;
-}();
+    return true;
+  });
+  allCategories.map(function (category) {
+    mainPage.appendChild(card_card(category, category, true));
+    return true;
+  });
+  return mainPage;
+};
+
+/* harmony default export */ var main_page = (main_page_createMainPage);
+// CONCATENATED MODULE: ./src/modules/menu.js
+var selectedSection = function selectedSection(event) {
+  console.log("\u0412\u044B\u0431\u0440\u0430\u043D \u0440\u0430\u0437\u0434\u0435\u043B: ".concat(event.target.innerText));
+  var allTd = Array.from(document.getElementsByClassName('td'));
+  allTd.map(function (td) {
+    return td.classList.remove('td');
+  });
+  event.target.classList.add('td');
+  var menuBtn = document.getElementsByClassName('menu openMenu');
+  var sections = Array.from(document.getElementsByClassName('section'));
+  document.getElementsByClassName('main-page')[0].classList.add('hidden');
+  menuBtn[0].classList.remove('openMenu');
+  sections.map(function (section) {
+    return section.classList.add('hidden');
+  });
+  document.getElementsByClassName(event.target.innerText.replace(/\s/ig, '-'))[0].classList.remove('hidden');
+};
+
+var createMenu = function createMenu(array) {
+  var menu = document.createElement('div');
+  var list = document.createElement('ul');
+  list.classList.add('menu-items');
+  menu.classList.add('menu');
+  array.map(function (item) {
+    var listItem = document.createElement('li');
+    var link = document.createElement('a');
+    link.addEventListener('click', function (event) {
+      selectedSection(event);
+    });
+    listItem.classList.add('item');
+    var textlistItem = document.createTextNode("".concat(item));
+    link.appendChild(textlistItem);
+    listItem.appendChild(link);
+    list.appendChild(listItem);
+  });
+  menu.appendChild(list);
+  return menu;
+};
+
+/* harmony default export */ var menu = (createMenu);
 // CONCATENATED MODULE: ./src/App.js
 
 
 
 
 
-document.body.appendChild(Container.createContainer());
-var container = document.getElementsByClassName('container')[0];
-container.append(Menu.createMenu());
-container.appendChild(header_Header.createHeader());
-container.appendChild(main_content_MainContent.createContent());
-container.appendChild(main_page_MainPage.createMainPage());
+
+document.body.appendChild(container());
+var App_container = document.getElementsByClassName('container')[0];
+App_container.append(menu(DATA_cards[0][0]));
+App_container.appendChild(modules_header());
+App_container.appendChild(main_content(DATA_cards[0][1], DATA_cards[1]));
+App_container.appendChild(main_page(DATA_cards[0][1]));
 
 /***/ })
 /******/ ]);

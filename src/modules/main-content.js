@@ -1,10 +1,10 @@
-import { Section } from './section'
+import createSection from './section'
 
-export class MainContent {
-  static createContent() {
-    const content = document.createElement('div')
-    content.classList.add('main-content')
-    content.appendChild(Section.createSection())
-    return content
-  }
+const createMainContent = (arrSections, arrCards, key) => {
+  const content = document.createElement('div')
+  content.classList.add('main-content')
+  content.appendChild(createSection(arrSections, arrCards, key))
+
+  return content
 }
+export default createMainContent

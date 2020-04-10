@@ -1,22 +1,23 @@
-import { Card } from '../UI/card/card'
-import { cards } from '../DATA/cards'
+import createCard from '../UI/card/card'
 
-export class MainPage {
-  static createMainPage() {
-    const mainPage = document.createElement('div')
-    mainPage.classList.add('main-page')
-    const allCategories = []
+const createMainPage = (arrSection) => {
+  const mainPage = document.createElement('div')
+  mainPage.classList.add('main-page')
+  const allCategories = []
+  arrSection.map((item, index) => {
+    if (arrSection[index]) {
+      allCategories.push(arrSection[index])
+    }
 
-    cards.map((item, i) => {
-      if (cards[0][i]) {
-        allCategories.push(cards[0][i])
-      }
-    })
+    return true
+  })
 
-    allCategories.map((category) => {
-      mainPage.appendChild(Card.createCard(category))
-    })
+  allCategories.map((category) => {
+    mainPage.appendChild(createCard(category, category, true))
 
-    return mainPage
-  }
+    return true
+  })
+
+  return mainPage
 }
+export default createMainPage

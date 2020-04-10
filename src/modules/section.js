@@ -1,32 +1,21 @@
-import { cards } from '../DATA/cards'
-import { Card } from '../UI/card/card'
+import createCard from '../UI/card/card'
 
-export class Section {
-  static createSection() {
-    const allSections = Array(...cards[0])
-    let allCards = []
+const createSection = (arrSection, arrCards) => {
+  const sections = document.createElement('div')
+  sections.classList.add('sections')
 
-    cards.map((item,i) => {
-      if (cards[i + 1]) {
-        allCards.push(cards[i + 1])
-      }
+  arrSection.map((item, index) => {
+    const section = document.createElement('div')
+    arrCards[index].map((card) => {
+      section.appendChild(createCard(card.word, item))
     })
 
-    const sections = document.createElement('div')
-    sections.classList.add('sections')
+    section.classList.add('section')
+    section.classList.add('hidden')
+    section.classList.add(`${item.replace(/\s/igu, '-')}`)
+    sections.appendChild(section)
+  })
 
-    allSections.map((item, i) => {
-      const section = document.createElement('div')
-
-      allCards[i].map((card) => {
-        section.appendChild(Card.createCard(card.word))
-      })
-
-      section.classList.add('section')
-      section.classList.add('hidden')
-      section.classList.add(`${item.replace(/\s/ig, '-')}`)
-      sections.appendChild(section)
-    })
-    return sections
-  }
+  return sections
 }
+export default createSection

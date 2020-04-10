@@ -1,5 +1,13 @@
-export const cards = [
-  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
+const cards = [
+
+  [[
+    'Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)', 'Animal (Set A)',
+    'Animal (Set B)', 'Adjective', 'Clothes', 'Emotions'
+  ], [
+    'Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'
+  ]],
+
+[
   [
     {
       word: 'cry',
@@ -301,3 +309,7 @@ export const cards = [
     }
   ]
 ]
+
+]
+
+export default cards

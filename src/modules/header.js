@@ -1,12 +1,12 @@
-import { ModeSwitch } from '../UI/switchBtn/modeSwitch'
-import { CallMenu } from '../UI/callMenu/callMenu'
+import createBtn from '../UI/switchBtn/modeSwitch'
+import createCallMenu from '../UI/callMenu/callMenu'
 
-export class Header {
-  static createHeader() {
-    const header = document.createElement('div')
-    header.classList.add('header')
-    header.appendChild(CallMenu.createCallMenu())
-    header.appendChild(ModeSwitch.createBtn())
-    return header
-  }
+const createHeader = () => {
+  const header = document.createElement('div')
+  header.classList.add('header')
+  header.appendChild(createCallMenu())
+  header.appendChild(createBtn())
+
+  return header
 }
+export default createHeader

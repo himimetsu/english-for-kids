@@ -1,12 +1,13 @@
-import { Container } from './modules/container'
-import { Header } from './modules/header'
-import { Menu } from './modules/menu'
-import { MainContent } from './modules/main-content'
-import { MainPage } from './modules/main-page'
+import cards from './DATA/cards'
+import createContainer from './modules/container'
+import createHeader from './modules/header'
+import createMainContent from './modules/main-content'
+import createMainPage from './modules/main-page'
+import createMenu from './modules/menu'
 
-document.body.appendChild(Container.createContainer())
+document.body.appendChild(createContainer())
 const container = document.getElementsByClassName('container')[0]
-container.append(Menu.createMenu())
-container.appendChild(Header.createHeader())
-container.appendChild(MainContent.createContent())
-container.appendChild(MainPage.createMainPage())
+container.append(createMenu(cards[0][0]))
+container.appendChild(createHeader())
+container.appendChild(createMainContent(cards[0][1], cards[1]))
+container.appendChild(createMainPage(cards[0][1]))
