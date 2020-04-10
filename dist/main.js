@@ -426,11 +426,20 @@ var card_toggleMenu = function toggleMenu(event) {
   document.getElementsByClassName("".concat(currentClick))[0].classList.remove('hidden');
 };
 
+var createFigure = function createFigure(word, img) {
+  var figure = document.createElement('figure');
+  var figcaption = document.createElement('figcaption');
+  figure.appendChild(img);
+  figure.appendChild(figcaption);
+  var textFigure = document.createTextNode("".concat(word));
+  figcaption.appendChild(textFigure);
+  return figure;
+};
+
 var createCard = function createCard(word, path, key) {
   var card = document.createElement('div');
   card.classList.add('card');
-  var figure = document.createElement('figure'),
-      img = document.createElement('img');
+  var img = document.createElement('img');
 
   if (key) {
     card.addEventListener('click', function (event) {
@@ -441,12 +450,7 @@ var createCard = function createCard(word, path, key) {
     img.src = "../../../dist/images/cards/".concat(word, ".jpg");
   }
 
-  var figcaption = document.createElement('figcaption');
-  figure.appendChild(img);
-  figure.appendChild(figcaption);
-  var textFigure = document.createTextNode("".concat(word));
-  figcaption.appendChild(textFigure);
-  card.appendChild(figure);
+  card.appendChild(createFigure(word, img));
   return card;
 };
 
@@ -461,11 +465,13 @@ var section_createSection = function createSection(arrSection, arrCards) {
     var section = document.createElement('div');
     arrCards[index].map(function (card) {
       section.appendChild(card_card(card.word, item));
+      return true;
     });
     section.classList.add('section');
     section.classList.add('hidden');
     section.classList.add("".concat(item.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-')));
     sections.appendChild(section);
+    return true;
   });
   return sections;
 };

@@ -7,25 +7,28 @@ const toggleMenu = (event) => {
     document.getElementsByClassName(`${currentClick}`)[0].classList.remove('hidden')
 }
 
+const createFigure = (word, img) => {
+  const figure = document.createElement('figure')
+  const figcaption = document.createElement('figcaption')
+  figure.appendChild(img)
+  figure.appendChild(figcaption)
+  const textFigure = document.createTextNode(`${word}`)
+  figcaption.appendChild(textFigure)
+
+  return figure
+}
+
 const createCard = (word, path, key) => {
   const card = document.createElement('div')
   card.classList.add('card')
-  const figure = document.createElement('figure'),
-  img = document.createElement('img')
-
+  const img = document.createElement('img')
   if (key) {
     card.addEventListener('click', (event) => toggleMenu(event))
     img.src = `../../../dist/images/cards/${path}.jpg`
   } else {
     img.src = `../../../dist/images/cards/${word}.jpg`
   }
-
-  const figcaption = document.createElement('figcaption')
-  figure.appendChild(img)
-  figure.appendChild(figcaption)
-  const textFigure = document.createTextNode(`${word}`)
-  figcaption.appendChild(textFigure)
-  card.appendChild(figure)
+  card.appendChild(createFigure(word, img))
 
   return card
 }

@@ -8,12 +8,16 @@ const createSection = (arrSection, arrCards) => {
     const section = document.createElement('div')
     arrCards[index].map((card) => {
       section.appendChild(createCard(card.word, item))
+
+      return true
     })
 
     section.classList.add('section')
     section.classList.add('hidden')
     section.classList.add(`${item.replace(/\s/igu, '-')}`)
     sections.appendChild(section)
+
+    return true
   })
 
   return sections
