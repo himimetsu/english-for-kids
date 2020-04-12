@@ -349,6 +349,23 @@ var toggleMenu = function toggleMenu() {
   menu.classList.remove('openMenu');
 };
 
+var setFlag = function setFlag(event) {
+  if (event.propertyName === 'right') {
+    document.getElementsByClassName('main-content')[0].classList.toggle('play');
+
+    if (document.getElementsByClassName('main-page')[0].className === 'main-page hidden') {
+      document.getElementsByClassName('game-button')[0].classList.toggle('hidden');
+    }
+
+    var allGamesCards = Array.from(document.getElementsByClassName('sections')[0].getElementsByClassName('card'));
+    allGamesCards.map(function (gameCard) {
+      gameCard.classList.toggle('hide-tooltips');
+      gameCard.classList.toggle('block-anima');
+      return true;
+    });
+  }
+};
+
 var createInput = function createInput() {
   var input = document.createElement('input');
   input.classList.add('onoffswitch-checkbox');
@@ -377,7 +394,8 @@ var createBtn = function createBtn() {
   modeSwitch.classList.add('onoffswitch');
   modeSwitch.appendChild(createInput());
   modeSwitch.appendChild(createLabel());
-  modeSwitch.addEventListener('click', toggleMenu());
+  modeSwitch.addEventListener('click', toggleMenu);
+  modeSwitch.addEventListener('transitionend', setFlag);
   return modeSwitch;
 };
 
@@ -412,7 +430,32 @@ var header_createHeader = function createHeader() {
 };
 
 /* harmony default export */ var modules_header = (header_createHeader);
+// CONCATENATED MODULE: ./src/UI/gameButton/gameButton.js
+var startGame = function startGame() {
+  console.log('Game started!');
+};
+
+var gameButton = function gameButton() {
+  var button = document.createElement('button');
+  button.classList.add('game-button');
+  button.classList.add('hidden');
+  button.setAttribute('type', 'button');
+  button.appendChild(document.createTextNode('START GAME'));
+  button.addEventListener('click', startGame);
+  var shellButton = document.createElement('div');
+  shellButton.classList.add('shell-button');
+  shellButton.appendChild(button);
+  return shellButton;
+};
+
+var createGameButton = function createGameButton() {
+  return gameButton();
+};
+
+/* harmony default export */ var gameButton_gameButton = (createGameButton);
 // CONCATENATED MODULE: ./src/UI/card/card.js
+
+
 var card_toggleMenu = function toggleMenu(event) {
   document.getElementsByClassName('main-page')[0].classList.add('hidden');
   document.getElementsByClassName('menu')[0].classList.remove('openMenu');
@@ -422,6 +465,53 @@ var card_toggleMenu = function toggleMenu(event) {
     return section.classList.add('hidden');
   });
   document.getElementsByClassName("".concat(currentClick))[0].classList.remove('hidden');
+};
+
+var card_translateWord = function translateWord(pressCard) {
+  var translate = '';
+  var tempSections = Array.from(document.getElementsByClassName('section'));
+  tempSections.map(function (section, index) {
+    if (!Array.from(section.classList).includes('hidden')) {
+      for (var jey = 0; jey < DATA_cards[1][index].length; jey += 1) {
+        if (DATA_cards[1][index][jey].word === pressCard) {
+          translate = DATA_cards[1][index][jey].translation;
+        }
+      }
+    }
+
+    return true;
+  });
+  return translate;
+};
+
+var addCardAnimation = function addCardAnimation(event) {
+  event.target.parentNode.parentNode.classList.add('card-animation');
+};
+
+var changeWord = function changeWord(event, word) {
+  setTimeout(function () {
+    event.target.children[0].children[1].innerText = card_translateWord(word);
+  }, 700);
+};
+
+var removeCardAnimation = function removeCardAnimation(event, word) {
+  event.target.classList.remove('card-animation');
+  setTimeout(function () {
+    event.target.children[0].children[1].innerText = word;
+  }, 1000);
+};
+
+var gameCard = function gameCard(card, word) {
+  card.addEventListener('click', function (event) {
+    return addCardAnimation(event, word);
+  });
+  card.addEventListener('mouseleave', function (event) {
+    return removeCardAnimation(event, word);
+  });
+  card.addEventListener('transitionstart', function (event) {
+    return changeWord(event, word);
+  });
+  return card;
 };
 
 var createFigure = function createFigure(word, img) {
@@ -445,6 +535,7 @@ var createCard = function createCard(word, path, key) {
     });
     img.src = "../../../dist/images/cards/".concat(path, ".jpg");
   } else {
+    gameCard(card, word);
     img.src = "../../../dist/images/cards/".concat(word, ".jpg");
   }
 
@@ -478,10 +569,12 @@ var section_createSection = function createSection(arrSection, arrCards) {
 // CONCATENATED MODULE: ./src/modules/main-content.js
 
 
-var main_content_createMainContent = function createMainContent(arrSections, arrCards, key) {
+
+var main_content_createMainContent = function createMainContent(arrSections, arrCards) {
   var content = document.createElement('div');
   content.classList.add('main-content');
-  content.appendChild(modules_section(arrSections, arrCards, key));
+  content.appendChild(modules_section(arrSections, arrCards, false));
+  content.appendChild(gameButton_gameButton());
   return content;
 };
 
