@@ -39,7 +39,8 @@ body {
   top: 0;
   width: 20%;
   height: 100%;
-  background-color: blue;
+  z-index: 2;
+  background: linear-gradient(40deg,#00bf82,#0099ae);
   transition: ease all 0.5s;
 }
 
@@ -77,6 +78,7 @@ body {
 
 .card {
   margin: 20px 0;
+  cursor: pointer;
 }
 
 .card figure {
@@ -90,8 +92,10 @@ body {
 }
 
 .card figcaption {
-  padding: 10px 5px;
+  padding: 10px 10px;
+  text-align: center;
   border-top: 2px solid black;
+  font-size: 22px;
 }
 
 .card img {
@@ -99,8 +103,44 @@ body {
   max-height: 200px;
 }
 
+.section .card {
+  transition: ease all 2s;
+  transform: rotateY(360deg);
+  transform-style: preserve-3d;
+}
+
+.section .card-animation {
+  transform: rotateY(0deg);
+}
+
+.sections .hide-tooltips figcaption {
+  display: none;
+}
+
+.sections .section .block-anima {
+  transition: none;
+}
+
+.shell-button {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.game-button {
+  width: 50%;
+  padding: 20px 10px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(40deg,#ffd86f,#fc6262);
+}
+
 .main-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
 }

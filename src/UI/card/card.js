@@ -5,6 +5,12 @@ const toggleMenu = (event) => {
     const sections = Array.from(document.getElementsByClassName('section'))
     sections.map((section) => section.classList.add('hidden'))
     document.getElementsByClassName(`${currentClick}`)[0].classList.remove('hidden')
+const addCardAnimation = (event) => {
+  event.target.parentNode.parentNode.classList.add('card-animation')
+}
+const removeCardAnimation = (event, word) => {
+  event.target.classList.remove('card-animation')
+}
 }
 
 const createFigure = (word, img) => {
