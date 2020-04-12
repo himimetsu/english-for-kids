@@ -21,12 +21,14 @@
 .onoffswitch-inner:before {
     content: "TRAIN";
     padding-left: 11px;
-    background-color: #34A7C1; color: #FFFFFF;
+    background: linear-gradient(40deg,#00bf82,#0099ae);
+    color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "PLAY";
     padding-right: 18px;
-    background-color: #EEEEEE; color: #999999;
+    color: #FFFFFF;
+    background: linear-gradient(40deg,#ffd86f,#fc6262);
     text-align: right;
 }
 .onoffswitch-switch {
