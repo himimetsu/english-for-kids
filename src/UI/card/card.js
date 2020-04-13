@@ -81,10 +81,10 @@ const createCard = (word, path, key) => {
   const img = document.createElement('img')
   if (key) {
     card.addEventListener('click', (event) => toggleMenu(event))
-    img.src = `../../../dist/images/cards/${path}.jpg`
+    img.src = `/images/cards/${path}.jpg`
   } else {
     gameCard(card, word)
-    img.src = `../../../dist/images/cards/${word}.jpg`
+    img.src = `/images/cards/${word}.jpg`
   }
   card.appendChild(createFigure(word, img))
 
