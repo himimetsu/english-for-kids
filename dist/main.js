@@ -479,20 +479,57 @@ var shuffle = function shuffle(arr) {
 
 
 
+var gameButton_searchBtnOfSection = function searchBtnOfSection() {
+  return document.getElementsByClassName(searchActiveSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0];
+};
+
+var currentArray = [];
+var gameButton_currentClick = '';
+
+var gameButton_cardClick = function cardClick(event) {
+  if (Array.from(document.getElementsByClassName('main-content')[0].classList).includes('play')) {
+    console.log(document.getElementsByClassName('main-content')[0].classList);
+
+    if (event.target.localName === 'img') {
+      gameButton_currentClick = event.target.nextSibling.innerText;
+
+      if (gameButton_currentClick === currentArray[0]) {
+        audioPlayer('Game', 'success');
+        currentArray.splice(0, 1);
+        setTimeout(function () {
+          audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
+        }, 2000);
+      } else {
+        audioPlayer('Game', 'error');
+      }
+    }
+  }
+};
+
 var gameButton_createGameArray = function createGameArray() {
-  document.getElementsByClassName(searchActiveSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0].classList.add('repeat');
+  gameButton_searchBtnOfSection().classList.add('repeat');
   var gameArray = [];
   DATA_cards[1][DATA_cards[0][1].indexOf(searchActiveSection().replace(/\x2D/ig, ' '))].map(function (item) {
     gameArray.push(item.word);
     return true;
   });
   gameArray = scripts_shuffle(gameArray);
-  console.log(gameArray);
+  currentArray = gameArray;
+  return gameArray;
 };
 
 var gameButton_startGame = function startGame() {
   scripts_hideMenu();
-  gameButton_createGameArray();
+
+  if (Array.from(gameButton_searchBtnOfSection().classList).includes('repeat')) {
+    audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
+    console.log('Массив уже создан');
+  } else {
+    document.getElementsByClassName(searchActiveSection())[0].addEventListener('click', function (event) {
+      return gameButton_cardClick(event);
+    });
+    gameButton_createGameArray();
+  }
 };
 
 var gameButton = function gameButton() {
@@ -608,10 +645,10 @@ var createCard = function createCard(word, path, key) {
     card.addEventListener('click', function (event) {
       return card_toggleMenu(event);
     });
-    img.src = "../../../dist/images/cards/".concat(path, ".jpg");
+    img.src = "/images/cards/".concat(path, ".jpg");
   } else {
     gameCard(card, word);
-    img.src = "../../../dist/images/cards/".concat(word, ".jpg");
+    img.src = "/images/cards/".concat(word, ".jpg");
   }
 
   card.appendChild(createFigure(word, img));
