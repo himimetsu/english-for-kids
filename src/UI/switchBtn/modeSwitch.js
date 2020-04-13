@@ -1,14 +1,11 @@
-const toggleMenu = () => {
-  const menu = document.getElementsByClassName('menu')[0]
-  menu.classList.remove('openMenu')
-}
+import hideMenu from '../../scripts/hideMenu'
 
 const setFlag = (event) => {
   if (event.propertyName === 'right') {
     document.getElementsByClassName('main-content')[0].classList.toggle('play')
-    if (document.getElementsByClassName('main-page')[0].className === 'main-page hidden') {
-      document.getElementsByClassName('game-button')[0].classList.toggle('hidden')
-    }
+
+    const allShellButtons = Array.from(document.getElementsByClassName('shell-button'))
+    allShellButtons.map((shellButton) => shellButton.classList.toggle('hidden'))
 
     const allGamesCards = Array.from(document.getElementsByClassName('sections')[0].getElementsByClassName('card'))
     allGamesCards.map((gameCard) => {
@@ -45,14 +42,14 @@ const createLabel = () => {
   return label
 }
 
-const createBtn = () => {
+const createSwitch = () => {
   const modeSwitch = document.createElement('div')
   modeSwitch.classList.add('onoffswitch')
   modeSwitch.appendChild(createInput())
   modeSwitch.appendChild(createLabel())
-  modeSwitch.addEventListener('click', toggleMenu)
+  modeSwitch.addEventListener('click', hideMenu)
   modeSwitch.addEventListener('transitionend', setFlag)
 
   return modeSwitch
 }
-export default createBtn
+export default createSwitch
