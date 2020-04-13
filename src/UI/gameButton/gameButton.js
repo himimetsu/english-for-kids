@@ -1,3 +1,4 @@
+import player from '../../scripts/audioPlayer'
 const startGame = () => {
   console.log('Game started!')
 }

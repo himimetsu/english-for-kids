@@ -1,4 +1,5 @@
 import cards from '../../DATA/cards'
+import player from '../../scripts/audioPlayer'
 
 const toggleMenu = (event) => {
   document.getElementsByClassName('main-page')[0].classList.add('hidden')
@@ -7,6 +8,14 @@ const toggleMenu = (event) => {
   const sections = Array.from(document.getElementsByClassName('section'))
   sections.map((section) => section.classList.add('hidden'))
   document.getElementsByClassName(`${currentClick}`)[0].classList.remove('hidden')
+}
+
+const playAudio = (event) => {
+  const currentCard = event.target.parentNode.parentNode.innerText
+  const currentSection = event.target.parentNode.parentNode.parentNode.classList[1].replace(/-/igu, ' ')
+  if (!document.getElementsByClassName('main-content')[0].classList[1]) {
+    player(currentSection, currentCard)
+  }
 }
 
 const translateWord = (pressCard) => {
@@ -48,6 +57,7 @@ const gameCard = (card, word) => {
   card.addEventListener('click', (event) => addCardAnimation(event, word))
   card.addEventListener('mouseleave', (event) => removeCardAnimation(event, word))
   card.addEventListener('transitionstart', (event) => changeWord(event, word))
+  card.addEventListener('click', (event) => playAudio(event))
 
   return card
 }
