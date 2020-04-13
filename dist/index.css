@@ -1,13 +1,14 @@
 body {
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background:linear-gradient(to right, rgb(118, 217, 238) 0%, rgb(160, 234, 250) 100%);
 }
 
 .container .hidden {
   display: none;
 }
 
-.sections .hidden {
+.container .sections .hidden {
   display: none;
 }
 
@@ -57,6 +58,7 @@ body {
 .item {
   padding: 10px;
   list-style: none;
+  user-select: none;
 }
 
 .item a {
@@ -85,6 +87,7 @@ body {
   margin: 0;
   border: 2px solid black;
   border-radius: 10px;
+  user-select: none;
 }
 
 .card figure:hover {
@@ -96,6 +99,7 @@ body {
   text-align: center;
   border-top: 2px solid black;
   font-size: 22px;
+  background: #f5f5dc;
 }
 
 .card img {
@@ -104,13 +108,13 @@ body {
 }
 
 .section .card {
-  transition: ease all 2s;
-  transform: rotateY(360deg);
+  transition: ease all 1s;
+  transform: rotateY(0deg);
   transform-style: preserve-3d;
 }
 
 .section .card-animation {
-  transform: rotateY(0deg);
+  transform: rotateY(360deg);
 }
 
 .sections .hide-tooltips figcaption {
@@ -143,4 +147,56 @@ body {
   text-align: center;
   font-size: 20px;
   font-weight: 600;
+}
+
+
+
+
+/* SWITCH MODE BUTTON */
+.onoffswitch {
+    position: relative; width: 118px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 40px; padding: 0; line-height: 40px;
+    font-size: 22px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "TRAIN";
+    padding-left: 11px;
+    background: linear-gradient(40deg,#00bf82,#0099ae);
+    color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "PLAY";
+    padding-right: 18px;
+    color: #FFFFFF;
+    background: linear-gradient(40deg,#ffd86f,#fc6262);
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 19px; margin: 10.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 74px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
 }
