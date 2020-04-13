@@ -1,4 +1,8 @@
+import cards from '../../DATA/cards'
+import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
+import searchSection from '../../scripts/searchActiveSection'
+import shuffle from '../../scripts/shuffle'
 const startGame = () => {
   console.log('Game started!')
 }
