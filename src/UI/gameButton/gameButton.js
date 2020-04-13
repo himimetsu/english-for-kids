@@ -4,8 +4,31 @@ import player from '../../scripts/audioPlayer'
 import searchSection from '../../scripts/searchActiveSection'
 import shuffle from '../../scripts/shuffle'
 
+const searchBtnOfSection = () => document.getElementsByClassName(searchSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0]
+
+let currentArray = []
+let currentClick = ''
+
+const cardClick = (event) => {
+  if (Array.from(document.getElementsByClassName('main-content')[0].classList).includes('play')) {
+    if (event.target.localName === 'img') {
+      currentClick = event.target.nextSibling.innerText
+
+      if (currentClick === currentArray[0]) {
+        player('Game', 'success')
+        currentArray.splice(0, 1)
+        setTimeout(() => {
+          player(searchSection().replace(/-/igu, ' '), currentArray[0])
+        }, 2000)
+      } else {
+        player('Game', 'error')
+      }
+    }
+  }
+}
+
 const createGameArray = () => {
-  document.getElementsByClassName(searchSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0].classList.add('repeat')
+  searchBtnOfSection().classList.add('repeat')
   let gameArray = []
   cards[1][cards[0][1].indexOf(searchSection().replace(/-/igu, ' '))].map((item) => {
     gameArray.push(item.word)
@@ -13,12 +36,20 @@ const createGameArray = () => {
     return true
   })
   gameArray = shuffle(gameArray)
-  console.log(gameArray)
+  currentArray = gameArray
+  player(searchSection().replace(/-/igu, ' '), currentArray[0])
+
+  return gameArray
 }
 
 const startGame = () => {
   hideMenu()
-  createGameArray()
+  if (Array.from(searchBtnOfSection().classList).includes('repeat')) {
+    player(searchSection().replace(/-/igu, ' '), currentArray[0])
+  } else {
+    document.getElementsByClassName(searchSection())[0].addEventListener('click', (event) => cardClick(event))
+    createGameArray()
+  }
 }
 
 const gameButton = () => {
