@@ -13,6 +13,7 @@ const createSection = (arrSection, arrCards) => {
       return true
     })
 
+    section.appendChild(createButton())
     section.classList.add('section')
     section.classList.add('hidden')
     section.classList.add(`${item.replace(/\s/igu, '-')}`)
