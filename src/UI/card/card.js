@@ -1,9 +1,10 @@
 import cards from '../../DATA/cards'
+import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
 
 const toggleMenu = (event) => {
+  hideMenu()
   document.getElementsByClassName('main-page')[0].classList.add('hidden')
-  document.getElementsByClassName('menu')[0].classList.remove('openMenu')
   let currentClick = event.target.parentNode.parentNode.innerText.replace(/\s/igu, '-')
   const sections = Array.from(document.getElementsByClassName('section'))
   sections.map((section) => section.classList.add('hidden'))
@@ -37,20 +38,21 @@ const translateWord = (pressCard) => {
 }
 
 const addCardAnimation = (event) => {
+  hideMenu()
   event.target.parentNode.parentNode.classList.add('card-animation')
 }
 
 const changeWord = (event, word) => {
   setTimeout(() => {
     event.target.children[0].children[1].innerText = translateWord(word)
-  }, 700)
+  }, 500)
 }
 
 const removeCardAnimation = (event, word) => {
   event.target.classList.remove('card-animation')
   setTimeout(() => {
     event.target.children[0].children[1].innerText = word
-  }, 1000)
+  }, 700)
 }
 
 const gameCard = (card, word) => {
