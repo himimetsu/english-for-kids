@@ -8,7 +8,7 @@ const selectedSection = (event) => {
   document.getElementsByClassName('main-page')[0].classList.add('hidden')
   menuBtn[0].classList.remove('openMenu')
   sections.map((section) => section.classList.add('hidden'))
-  document.getElementsByClassName(event.target.innerText.replace(/\s/ig, '-'))[0].classList.remove('hidden')
+  document.getElementsByClassName(event.target.innerText.replace(/\s/igu, '-'))[0].classList.remove('hidden')
 }
 
 const createMenu = (array) => {
@@ -19,12 +19,14 @@ const createMenu = (array) => {
     array.map((item) => {
       const listItem = document.createElement('li')
       const link = document.createElement('a')
-      link.addEventListener('click', (event) => { selectedSection(event) })
+      link.addEventListener('click', (event) => selectedSection(event))
       listItem.classList.add('item')
       const textlistItem = document.createTextNode(`${item}`)
       link.appendChild(textlistItem)
       listItem.appendChild(link)
       list.appendChild(listItem)
+
+      return true
     })
   menu.appendChild(list)
 
