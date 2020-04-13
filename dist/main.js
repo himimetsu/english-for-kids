@@ -343,20 +343,39 @@ var createContainer = function createContainer() {
 };
 
 /* harmony default export */ var container = (createContainer);
-// CONCATENATED MODULE: ./src/UI/switchBtn/modeSwitch.js
-var toggleMenu = function toggleMenu() {
-  var menu = document.getElementsByClassName('menu')[0];
-  menu.classList.remove('openMenu');
+// CONCATENATED MODULE: ./src/UI/callMenu/callMenu.js
+var createCallMenu = function createCallMenu() {
+  var callMenu = document.createElement('div');
+  callMenu.classList.add('btn-call-menu');
+  callMenu.addEventListener('click', function () {
+    var tempMenu = document.getElementsByClassName('btn-call-menu')[0];
+    tempMenu.classList.toggle('active');
+    var menu = document.getElementsByClassName('menu')[0];
+    menu.classList.toggle('openMenu');
+    var header = document.getElementsByClassName('header')[0];
+    var menuItems = document.getElementsByClassName('menu-items')[0];
+    menuItems.setAttribute('style', "margin-top: ".concat(header.clientHeight + header.offsetTop + 30, "px"));
+  });
+  return callMenu;
 };
+
+/* harmony default export */ var callMenu = (createCallMenu);
+// CONCATENATED MODULE: ./src/scripts/hideMenu.js
+var hideMenu = function hideMenu() {
+  return document.getElementsByClassName('menu')[0].classList.remove('openMenu');
+};
+
+/* harmony default export */ var scripts_hideMenu = (hideMenu);
+// CONCATENATED MODULE: ./src/UI/switchBtn/modeSwitch.js
+
 
 var setFlag = function setFlag(event) {
   if (event.propertyName === 'right') {
     document.getElementsByClassName('main-content')[0].classList.toggle('play');
-
-    if (document.getElementsByClassName('main-page')[0].className === 'main-page hidden') {
-      document.getElementsByClassName('game-button')[0].classList.toggle('hidden');
-    }
-
+    var allShellButtons = Array.from(document.getElementsByClassName('shell-button'));
+    allShellButtons.map(function (shellButton) {
+      return shellButton.classList.toggle('hidden');
+    });
     var allGamesCards = Array.from(document.getElementsByClassName('sections')[0].getElementsByClassName('card'));
     allGamesCards.map(function (gameCard) {
       gameCard.classList.toggle('hide-tooltips');
@@ -389,34 +408,17 @@ var createLabel = function createLabel() {
   return label;
 };
 
-var createBtn = function createBtn() {
+var modeSwitch_createSwitch = function createSwitch() {
   var modeSwitch = document.createElement('div');
   modeSwitch.classList.add('onoffswitch');
   modeSwitch.appendChild(createInput());
   modeSwitch.appendChild(createLabel());
-  modeSwitch.addEventListener('click', toggleMenu);
+  modeSwitch.addEventListener('click', scripts_hideMenu);
   modeSwitch.addEventListener('transitionend', setFlag);
   return modeSwitch;
 };
 
-/* harmony default export */ var modeSwitch = (createBtn);
-// CONCATENATED MODULE: ./src/UI/callMenu/callMenu.js
-var createCallMenu = function createCallMenu() {
-  var callMenu = document.createElement('div');
-  callMenu.classList.add('btn-call-menu');
-  callMenu.addEventListener('click', function () {
-    var tempMenu = document.getElementsByClassName('btn-call-menu')[0];
-    tempMenu.classList.toggle('active');
-    var menu = document.getElementsByClassName('menu')[0];
-    menu.classList.toggle('openMenu');
-    var header = document.getElementsByClassName('header')[0];
-    var menuItems = document.getElementsByClassName('menu-items')[0];
-    menuItems.setAttribute('style', "margin-top: ".concat(header.clientHeight + header.offsetTop + 30, "px"));
-  });
-  return callMenu;
-};
-
-/* harmony default export */ var callMenu = (createCallMenu);
+/* harmony default export */ var switchBtn_modeSwitch = (modeSwitch_createSwitch);
 // CONCATENATED MODULE: ./src/modules/header.js
 
 
@@ -425,25 +427,83 @@ var header_createHeader = function createHeader() {
   var header = document.createElement('div');
   header.classList.add('header');
   header.appendChild(callMenu());
-  header.appendChild(modeSwitch());
+  header.appendChild(switchBtn_modeSwitch());
   return header;
 };
 
 /* harmony default export */ var modules_header = (header_createHeader);
+// CONCATENATED MODULE: ./src/scripts/audioPlayer.js
+var player = function player(currentSection, currentCard) {
+  var audio = new Audio("./audio/".concat(currentSection, "/").concat(currentCard, ".mp3"));
+  audio.play();
+};
+
+/* harmony default export */ var audioPlayer = (player);
+// CONCATENATED MODULE: ./src/scripts/searchActiveSection.js
+var searchSection = function searchSection() {
+  var allSections = Array.from(document.getElementsByClassName('sections')[0].children);
+  var activeSection = '';
+  allSections.map(function (section, index) {
+    if (!Array.from(section.classList).includes('hidden')) {
+      activeSection = String(allSections[index].classList[1]);
+    }
+
+    return true;
+  });
+  return activeSection;
+};
+
+/* harmony default export */ var searchActiveSection = (searchSection);
+// CONCATENATED MODULE: ./src/scripts/shuffle.js
+var shuffle = function shuffle(arr) {
+  var currentIndex = arr.length;
+  var temporaryValue = 0;
+  var randomIndex = 0;
+
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = arr[currentIndex];
+    arr[currentIndex] = arr[randomIndex];
+    arr[randomIndex] = temporaryValue;
+  }
+
+  return arr;
+};
+
+/* harmony default export */ var scripts_shuffle = (shuffle);
 // CONCATENATED MODULE: ./src/UI/gameButton/gameButton.js
-var startGame = function startGame() {
-  console.log('Game started!');
+
+
+
+
+
+
+var gameButton_createGameArray = function createGameArray() {
+  document.getElementsByClassName(searchActiveSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0].classList.add('repeat');
+  var gameArray = [];
+  DATA_cards[1][DATA_cards[0][1].indexOf(searchActiveSection().replace(/\x2D/ig, ' '))].map(function (item) {
+    gameArray.push(item.word);
+    return true;
+  });
+  gameArray = scripts_shuffle(gameArray);
+  console.log(gameArray);
+};
+
+var gameButton_startGame = function startGame() {
+  scripts_hideMenu();
+  gameButton_createGameArray();
 };
 
 var gameButton = function gameButton() {
   var button = document.createElement('button');
   button.classList.add('game-button');
-  button.classList.add('hidden');
   button.setAttribute('type', 'button');
   button.appendChild(document.createTextNode('START GAME'));
-  button.addEventListener('click', startGame);
+  button.addEventListener('click', gameButton_startGame);
   var shellButton = document.createElement('div');
   shellButton.classList.add('shell-button');
+  shellButton.classList.add('hidden');
   shellButton.appendChild(button);
   return shellButton;
 };
@@ -456,15 +516,26 @@ var createGameButton = function createGameButton() {
 // CONCATENATED MODULE: ./src/UI/card/card.js
 
 
+
+
 var card_toggleMenu = function toggleMenu(event) {
+  scripts_hideMenu();
   document.getElementsByClassName('main-page')[0].classList.add('hidden');
-  document.getElementsByClassName('menu')[0].classList.remove('openMenu');
   var currentClick = event.target.parentNode.parentNode.innerText.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-');
   var sections = Array.from(document.getElementsByClassName('section'));
   sections.map(function (section) {
     return section.classList.add('hidden');
   });
   document.getElementsByClassName("".concat(currentClick))[0].classList.remove('hidden');
+};
+
+var card_playAudio = function playAudio(event) {
+  var currentCard = event.target.parentNode.parentNode.innerText;
+  var currentSection = event.target.parentNode.parentNode.parentNode.classList[1].replace(/\x2D/ig, ' ');
+
+  if (!document.getElementsByClassName('main-content')[0].classList[1]) {
+    audioPlayer(currentSection, currentCard);
+  }
 };
 
 var card_translateWord = function translateWord(pressCard) {
@@ -484,32 +555,36 @@ var card_translateWord = function translateWord(pressCard) {
   return translate;
 };
 
-var addCardAnimation = function addCardAnimation(event) {
+var card_addCardAnimation = function addCardAnimation(event) {
+  scripts_hideMenu();
   event.target.parentNode.parentNode.classList.add('card-animation');
 };
 
 var changeWord = function changeWord(event, word) {
   setTimeout(function () {
     event.target.children[0].children[1].innerText = card_translateWord(word);
-  }, 700);
+  }, 500);
 };
 
 var removeCardAnimation = function removeCardAnimation(event, word) {
   event.target.classList.remove('card-animation');
   setTimeout(function () {
     event.target.children[0].children[1].innerText = word;
-  }, 1000);
+  }, 700);
 };
 
 var gameCard = function gameCard(card, word) {
   card.addEventListener('click', function (event) {
-    return addCardAnimation(event, word);
+    return card_addCardAnimation(event, word);
   });
   card.addEventListener('mouseleave', function (event) {
     return removeCardAnimation(event, word);
   });
   card.addEventListener('transitionstart', function (event) {
     return changeWord(event, word);
+  });
+  card.addEventListener('click', function (event) {
+    return card_playAudio(event);
   });
   return card;
 };
@@ -547,6 +622,7 @@ var createCard = function createCard(word, path, key) {
 // CONCATENATED MODULE: ./src/modules/section.js
 
 
+
 var section_createSection = function createSection(arrSection, arrCards) {
   var sections = document.createElement('div');
   sections.classList.add('sections');
@@ -556,6 +632,7 @@ var section_createSection = function createSection(arrSection, arrCards) {
       section.appendChild(card_card(card.word, item));
       return true;
     });
+    section.appendChild(gameButton_gameButton());
     section.classList.add('section');
     section.classList.add('hidden');
     section.classList.add("".concat(item.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-')));
@@ -569,12 +646,10 @@ var section_createSection = function createSection(arrSection, arrCards) {
 // CONCATENATED MODULE: ./src/modules/main-content.js
 
 
-
 var main_content_createMainContent = function createMainContent(arrSections, arrCards) {
   var content = document.createElement('div');
   content.classList.add('main-content');
   content.appendChild(modules_section(arrSections, arrCards, false));
-  content.appendChild(gameButton_gameButton());
   return content;
 };
 
@@ -616,7 +691,7 @@ var selectedSection = function selectedSection(event) {
   sections.map(function (section) {
     return section.classList.add('hidden');
   });
-  document.getElementsByClassName(event.target.innerText.replace(/\s/ig, '-'))[0].classList.remove('hidden');
+  document.getElementsByClassName(event.target.innerText.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-'))[0].classList.remove('hidden');
 };
 
 var createMenu = function createMenu(array) {
@@ -628,13 +703,14 @@ var createMenu = function createMenu(array) {
     var listItem = document.createElement('li');
     var link = document.createElement('a');
     link.addEventListener('click', function (event) {
-      selectedSection(event);
+      return selectedSection(event);
     });
     listItem.classList.add('item');
     var textlistItem = document.createTextNode("".concat(item));
     link.appendChild(textlistItem);
     listItem.appendChild(link);
     list.appendChild(listItem);
+    return true;
   });
   menu.appendChild(list);
   return menu;
