@@ -125,7 +125,8 @@ body {
   transition: none;
 }
 
-.shell-button {
+.section .shell-button {
+  width: 100%;
   margin-top: 30px;
   display: flex;
   justify-content: center;
@@ -138,6 +139,10 @@ body {
   border-radius: 10px;
   border: none;
   background: linear-gradient(40deg,#ffd86f,#fc6262);
+}
+
+.shell-button .repeat {
+  width: auto;
 }
 
 .main-page {
