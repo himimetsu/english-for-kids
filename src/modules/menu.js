@@ -1,5 +1,4 @@
 const selectedSection = (event) => {
-  console.log(`Выбран раздел: ${event.target.innerText}`)
   const allTd = Array.from(document.getElementsByClassName('td'))
   allTd.map((td) => td.classList.remove('td'))
   event.target.classList.add('td')
@@ -9,6 +8,7 @@ const selectedSection = (event) => {
   menuBtn[0].classList.remove('openMenu')
   sections.map((section) => section.classList.add('hidden'))
   document.getElementsByClassName(event.target.innerText.replace(/\s/igu, '-'))[0].classList.remove('hidden')
+  document.getElementsByClassName('repeat')[0].classList.remove('repeat')
 }
 
 const createMenu = (array) => {
