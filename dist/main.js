@@ -374,6 +374,19 @@ var header_createHeader = function createHeader() {
 };
 
 /* harmony default export */ var modules_header = (header_createHeader);
+// CONCATENATED MODULE: ./src/scripts/ClearWindow.js
+var clear = function clear() {
+  var allHappy = Array.from(document.getElementsByClassName('happy'));
+  var allSad = Array.from(document.getElementsByClassName('sad'));
+  allHappy.map(function (happy) {
+    return happy.remove();
+  });
+  allSad.map(function (sad) {
+    return sad.remove();
+  });
+};
+
+/* harmony default export */ var ClearWindow = (clear);
 // CONCATENATED MODULE: ./src/scripts/audioPlayer.js
 var player = function player(currentSection, currentCard) {
   var audio = new Audio("./audio/".concat(currentSection, "/").concat(currentCard, ".mp3"));
@@ -407,10 +420,7 @@ var searchSection = function searchSection() {
 
 
 
-var refresh = function refresh() {
-  document.getElementsByClassName('sad')[0].remove();
-  document.getElementsByClassName('happy')[0].remove();
-};
+
 
 var sadText = function sadText(error, success) {
   var frag = document.createDocumentFragment();
@@ -462,11 +472,12 @@ var Ending_showModal = function showModal(error, success) {
   setTimeout(function () {
     document.getElementsByClassName('modal-window')[0].classList.add('hidden');
     document.getElementsByClassName('main-page')[0].classList.remove('hidden');
-    refresh();
+    ClearWindow();
   }, 4000);
 };
 
 var Ending_end = function end(error, success) {
+  OffMode();
   document.getElementsByClassName(searchActiveSection())[0].classList.add('hidden');
   Ending_showModal(error, success);
   setTimeout(function () {
@@ -526,6 +537,12 @@ var gameButton_right = function right(event) {
   gameButton_success += 1;
   audioPlayer('Game', 'correct');
   currentArray.splice(0, 1);
+
+  if (currentArray.length === 0) {
+    Ending(gameButton_error, gameButton_success);
+    gameButton_error = 0;
+    gameButton_success = 0;
+  }
 };
 
 var gameButton_wrong = function wrong() {
@@ -541,11 +558,6 @@ var gameButton_cardClick = function cardClick(event) {
       if (gameButton_currentClick === currentArray[0]) {
         event.target.parentNode.previousSibling.classList.remove('hidden');
         gameButton_right(event);
-
-        if (currentArray.length === 0) {
-          Ending(gameButton_error, gameButton_success);
-        }
-
         setTimeout(function () {
           audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
         }, 1000);

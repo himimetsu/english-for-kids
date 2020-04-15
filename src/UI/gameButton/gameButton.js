@@ -24,6 +24,11 @@ const right = (event) => {
   success += 1
   player('Game', 'correct')
   currentArray.splice(0, 1)
+  if (currentArray.length === 0) {
+    end(error, success)
+    error = 0
+    success = 0
+  }
 }
 
 const wrong = () => {
@@ -38,9 +43,6 @@ const cardClick = (event) => {
       if (currentClick === currentArray[0]) {
         event.target.parentNode.previousSibling.classList.remove('hidden')
         right(event)
-        if (currentArray.length === 0) {
-          end(error, success)
-        }
         setTimeout(() => {
           player(searchSection().replace(/-/igu, ' '), currentArray[0])
         }, 1000)

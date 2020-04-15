@@ -1,11 +1,8 @@
+import clear from './ClearWindow'
+import off from './OffMode'
 import player from './audioPlayer'
 import reset from './GameReset'
 import searchSection from './searchActiveSection'
-
-const refresh = () => {
-  document.getElementsByClassName('sad')[0].remove()
-  document.getElementsByClassName('happy')[0].remove()
-}
 
 const sadText = (error, success) => {
   const frag = document.createDocumentFragment()
@@ -61,11 +58,12 @@ const showModal = (error, success) => {
   setTimeout(() => {
     document.getElementsByClassName('modal-window')[0].classList.add('hidden')
     document.getElementsByClassName('main-page')[0].classList.remove('hidden')
-    refresh()
+    clear()
   }, 4000)
 }
 
 const end = (error, success) => {
+  off()
   document.getElementsByClassName(searchSection())[0].classList.add('hidden')
   showModal(error, success)
   setTimeout(() => {
