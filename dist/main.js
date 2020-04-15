@@ -95,244 +95,148 @@ __webpack_require__.r(__webpack_exports__);
 // CONCATENATED MODULE: ./src/DATA/cards.js
 var cards = [[['Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)', 'Animal (Set A)', 'Animal (Set B)', 'Adjective', 'Clothes', 'Emotions'], ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions']], [[{
   word: 'cry',
-  translation: 'плакать',
-  image: 'img/cry.jpg',
-  audioSrc: 'audio/cry.mp3'
+  translation: 'плакать'
 }, {
   word: 'dance',
-  translation: 'танцевать',
-  image: 'img/dance.jpg',
-  audioSrc: 'audio/dance.mp3'
+  translation: 'танцевать'
 }, {
   word: 'dive',
-  translation: 'нырять',
-  image: 'img/dive.jpg',
-  audioSrc: 'audio/dive.mp3'
+  translation: 'нырять'
 }, {
   word: 'draw',
-  translation: 'рисовать',
-  image: 'img/draw.jpg',
-  audioSrc: 'audio/draw.mp3'
+  translation: 'рисовать'
 }, {
   word: 'fish',
-  translation: 'ловить рыбу',
-  image: 'img/fish.jpg',
-  audioSrc: 'audio/fish.mp3'
+  translation: 'ловить рыбу'
 }, {
   word: 'fly',
-  translation: 'летать',
-  image: 'img/fly.jpg',
-  audioSrc: 'audio/fly.mp3'
+  translation: 'летать'
 }, {
   word: 'hug',
-  translation: 'обнимать',
-  image: 'img/hug.jpg',
-  audioSrc: 'audio/hug.mp3'
+  translation: 'обнимать'
 }, {
   word: 'jump',
-  translation: 'прыгать',
-  image: 'img/jump.jpg',
-  audioSrc: 'audio/jump.mp3'
+  translation: 'прыгать'
 }], [{
   word: 'open',
-  translation: 'открывать',
-  image: 'img/open.jpg',
-  audioSrc: 'audio/open.mp3'
+  translation: 'открывать'
 }, {
   word: 'play',
-  translation: 'играть',
-  image: 'img/play.jpg',
-  audioSrc: 'audio/play.mp3'
+  translation: 'играть'
 }, {
   word: 'point',
-  translation: 'указывать',
-  image: 'img/point.jpg',
-  audioSrc: 'audio/point.mp3'
+  translation: 'указывать'
 }, {
   word: 'ride',
-  translation: 'ездить',
-  image: 'img/ride.jpg',
-  audioSrc: 'audio/ride.mp3'
+  translation: 'ездить'
 }, {
   word: 'run',
-  translation: 'бегать',
-  image: 'img/run.jpg',
-  audioSrc: 'audio/run.mp3'
+  translation: 'бегать'
 }, {
   word: 'sing',
-  translation: 'петь',
-  image: 'img/sing.jpg',
-  audioSrc: 'audio/sing.mp3'
+  translation: 'петь'
 }, {
   word: 'skip',
-  translation: 'пропускать, прыгать',
-  image: 'img/skip.jpg',
-  audioSrc: 'audio/skip.mp3'
+  translation: 'пропускать, прыгать'
 }, {
   word: 'swim',
-  translation: 'плавать',
-  image: 'img/swim.jpg',
-  audioSrc: 'audio/swim.mp3'
+  translation: 'плавать'
 }], [{
   word: 'cat',
-  translation: 'кот',
-  image: 'img/cat.jpg',
-  audioSrc: 'audio/cat.mp3'
+  translation: 'кот'
 }, {
   word: 'chick',
-  translation: 'цыплёнок',
-  image: 'img/chick.jpg',
-  audioSrc: 'audio/chick.mp3'
+  translation: 'цыплёнок'
 }, {
   word: 'chicken',
-  translation: 'курица',
-  image: 'img/chicken.jpg',
-  audioSrc: 'audio/chicken.mp3'
+  translation: 'курица'
 }, {
   word: 'dog',
-  translation: 'собака',
-  image: 'img/dog.jpg',
-  audioSrc: 'audio/dog.mp3'
+  translation: 'собака'
 }, {
   word: 'horse',
-  translation: 'лошадь',
-  image: 'img/horse.jpg',
-  audioSrc: 'audio/horse.mp3'
+  translation: 'лошадь'
 }, {
   word: 'pig',
-  translation: 'свинья',
-  image: 'img/pig.jpg',
-  audioSrc: 'audio/pig.mp3'
+  translation: 'свинья'
 }, {
   word: 'rabbit',
-  translation: 'кролик',
-  image: 'img/rabbit.jpg',
-  audioSrc: 'audio/rabbit.mp3'
+  translation: 'кролик'
 }, {
   word: 'sheep',
-  translation: 'овца',
-  image: 'img/sheep.jpg',
-  audioSrc: 'audio/sheep.mp3'
+  translation: 'овца'
 }], [{
   word: 'bird',
-  translation: 'птица',
-  image: 'img/bird.jpg',
-  audioSrc: 'audio/bird.mp3'
+  translation: 'птица'
 }, {
   word: 'fish',
-  translation: 'рыба',
-  image: 'img/fish1.jpg',
-  audioSrc: 'audio/fish.mp3'
+  translation: 'рыба'
 }, {
   word: 'frog',
-  translation: 'жаба',
-  image: 'img/frog.jpg',
-  audioSrc: 'audio/frog.mp3'
+  translation: 'жаба'
 }, {
   word: 'giraffe',
-  translation: 'жирафа',
-  image: 'img/giraffe.jpg',
-  audioSrc: 'audio/giraffe.mp3'
+  translation: 'жирафа'
 }, {
   word: 'lion',
-  translation: 'лев',
-  image: 'img/lion.jpg',
-  audioSrc: 'audio/lion.mp3'
+  translation: 'лев'
 }, {
   word: 'mouse',
-  translation: 'мышь',
-  image: 'img/mouse.jpg',
-  audioSrc: 'audio/mouse.mp3'
+  translation: 'мышь'
 }, {
   word: 'turtle',
-  translation: 'черепаха',
-  image: 'img/turtle.jpg',
-  audioSrc: 'audio/turtle.mp3'
+  translation: 'черепаха'
 }, {
   word: 'dolphin',
-  translation: 'дельфин',
-  image: 'img/dolphin.jpg',
-  audioSrc: 'audio/dolphin.mp3'
+  translation: 'дельфин'
 }], [{
   word: 'skirt',
-  translation: 'юбка',
-  image: 'img/skirt.jpg',
-  audioSrc: 'audio/skirt.mp3'
+  translation: 'юбка'
 }, {
   word: 'pants',
-  translation: 'брюки',
-  image: 'img/pants.jpg',
-  audioSrc: 'audio/pants.mp3'
+  translation: 'брюки'
 }, {
   word: 'blouse',
-  translation: 'блузка',
-  image: 'img/blouse.jpg',
-  audioSrc: 'audio/blouse.mp3'
+  translation: 'блузка'
 }, {
   word: 'dress',
-  translation: 'платье',
-  image: 'img/dress.jpg',
-  audioSrc: 'audio/dress.mp3'
+  translation: 'платье'
 }, {
   word: 'boot',
-  translation: 'ботинок',
-  image: 'img/boot.jpg',
-  audioSrc: 'audio/boot.mp3'
+  translation: 'ботинок'
 }, {
   word: 'shirt',
-  translation: 'рубашка',
-  image: 'img/shirt.jpg',
-  audioSrc: 'audio/shirt.mp3'
+  translation: 'рубашка'
 }, {
   word: 'coat',
-  translation: 'пальто',
-  image: 'img/coat.jpg',
-  audioSrc: 'audio/coat.mp3'
+  translation: 'пальто'
 }, {
   word: 'shoe',
-  translation: 'туфли',
-  image: 'img/shoe.jpg',
-  audioSrc: 'audio/shoe.mp3'
+  translation: 'туфли'
 }], [{
   word: 'sad',
-  translation: 'грустный',
-  image: 'img/sad.jpg',
-  audioSrc: 'audio/sad.mp3'
+  translation: 'грустный'
 }, {
   word: 'angry',
-  translation: 'сердитый',
-  image: 'img/angry.jpg',
-  audioSrc: 'audio/angry.mp3'
+  translation: 'сердитый'
 }, {
   word: 'happy',
-  translation: 'счастливый',
-  image: 'img/happy.jpg',
-  audioSrc: 'audio/happy.mp3'
+  translation: 'счастливый'
 }, {
   word: 'tired',
-  translation: 'уставший',
-  image: 'img/tired.jpg',
-  audioSrc: 'audio/tired.mp3'
+  translation: 'уставший'
 }, {
   word: 'surprised',
-  translation: 'удивлённый',
-  image: 'img/surprised.jpg',
-  audioSrc: 'audio/surprised.mp3'
+  translation: 'удивлённый'
 }, {
   word: 'scared',
-  translation: 'испуганный',
-  image: 'img/scared.jpg',
-  audioSrc: 'audio/scared.mp3'
+  translation: 'испуганный'
 }, {
   word: 'smile',
-  translation: 'улыбка',
-  image: 'img/smile.jpg',
-  audioSrc: 'audio/smile.mp3'
+  translation: 'улыбка'
 }, {
   word: 'laugh',
-  translation: 'смех',
-  image: 'img/laugh.jpg',
-  audioSrc: 'audio/laugh.mp3'
+  translation: 'смех'
 }]]];
 /* harmony default export */ var DATA_cards = (cards);
 // CONCATENATED MODULE: ./src/modules/container.js
@@ -366,12 +270,50 @@ var hideMenu = function hideMenu() {
 };
 
 /* harmony default export */ var scripts_hideMenu = (hideMenu);
+// CONCATENATED MODULE: ./src/scripts/RefreshGameBtn.js
+var refreshGameBtn = function refreshGameBtn() {
+  var allGameStart = Array.from(document.getElementsByClassName('game-start'));
+  var allGameRepeat = Array.from(document.getElementsByClassName('game-repeat'));
+  allGameStart.map(function (item) {
+    return item.classList.remove('hidden');
+  });
+  allGameRepeat.map(function (item) {
+    return item.classList.add('hidden');
+  });
+};
+
+/* harmony default export */ var RefreshGameBtn = (refreshGameBtn);
+// CONCATENATED MODULE: ./src/scripts/OffMode.js
+
+
+var OffMode_off = function off(key) {
+  var allNonClick = Array.from(document.getElementsByClassName('non-click'));
+  allNonClick.map(function (non) {
+    return non.classList.remove('non-click');
+  });
+  var allUsed = Array.from(document.getElementsByClassName('used'));
+  allUsed.map(function (used) {
+    return used.classList.add('hidden');
+  });
+  var allBtn = Array.from(document.getElementsByClassName('game-button'));
+  allBtn.map(function (btn) {
+    return btn.classList.remove('repeat');
+  });
+  RefreshGameBtn();
+
+  if (key) {
+    document.getElementsByClassName('main-content')[0].classList.toggle('play');
+  }
+};
+
+/* harmony default export */ var OffMode = (OffMode_off);
 // CONCATENATED MODULE: ./src/UI/switchBtn/modeSwitch.js
 
 
-var setFlag = function setFlag(event) {
+
+var modeSwitch_setFlag = function setFlag(event) {
   if (event.propertyName === 'right') {
-    document.getElementsByClassName('main-content')[0].classList.toggle('play');
+    OffMode(true);
     var allShellButtons = Array.from(document.getElementsByClassName('shell-button'));
     allShellButtons.map(function (shellButton) {
       return shellButton.classList.toggle('hidden');
@@ -414,7 +356,7 @@ var modeSwitch_createSwitch = function createSwitch() {
   modeSwitch.appendChild(createInput());
   modeSwitch.appendChild(createLabel());
   modeSwitch.addEventListener('click', scripts_hideMenu);
-  modeSwitch.addEventListener('transitionend', setFlag);
+  modeSwitch.addEventListener('transitionend', modeSwitch_setFlag);
   return modeSwitch;
 };
 
@@ -439,6 +381,12 @@ var player = function player(currentSection, currentCard) {
 };
 
 /* harmony default export */ var audioPlayer = (player);
+// CONCATENATED MODULE: ./src/scripts/GameReset.js
+var GameReset_reset = function reset() {
+  return document.getElementsByClassName('repeat')[0].classList.remove('repeat');
+};
+
+/* harmony default export */ var GameReset = (GameReset_reset);
 // CONCATENATED MODULE: ./src/scripts/searchActiveSection.js
 var searchSection = function searchSection() {
   var allSections = Array.from(document.getElementsByClassName('sections')[0].children);
@@ -454,6 +402,83 @@ var searchSection = function searchSection() {
 };
 
 /* harmony default export */ var searchActiveSection = (searchSection);
+// CONCATENATED MODULE: ./src/scripts/Ending.js
+
+
+
+
+var refresh = function refresh() {
+  document.getElementsByClassName('sad')[0].remove();
+  document.getElementsByClassName('happy')[0].remove();
+};
+
+var sadText = function sadText(error, success) {
+  var frag = document.createDocumentFragment();
+  var succSpan = document.createElement('span');
+  succSpan.classList.add('success');
+  succSpan.appendChild(document.createTextNode("Success: ".concat(success)));
+  var failSpan = document.createElement('span');
+  failSpan.classList.add('fail');
+  failSpan.appendChild(document.createTextNode("Error: ".concat(error)));
+  frag.appendChild(succSpan);
+  frag.appendChild(failSpan);
+  return frag;
+};
+
+var sad = function sad(error, success) {
+  var div = document.createElement('div');
+  div.classList.add('sad');
+  var img = document.createElement('img');
+  img.src = '/images/cards/failure.jpg';
+  div.appendChild(img);
+  div.appendChild(sadText(error, success));
+  return div;
+};
+
+var happy = function happy() {
+  var div = document.createElement('div');
+  div.classList.add('happy');
+  var img = document.createElement('img');
+  img.src = '/images/cards/success.jpg';
+  div.appendChild(img);
+  var span = document.createElement('span');
+  span.appendChild(document.createTextNode('Win!'));
+  div.appendChild(span);
+  return div;
+};
+
+var Ending_showModal = function showModal(error, success) {
+  var window = document.getElementsByClassName('window')[0];
+  document.getElementsByClassName('modal-window')[0].classList.remove('hidden');
+
+  if (error) {
+    audioPlayer('Game', 'failure');
+    window.appendChild(sad(error, success));
+  } else {
+    audioPlayer('Game', 'success');
+    window.appendChild(happy());
+  }
+
+  setTimeout(function () {
+    document.getElementsByClassName('modal-window')[0].classList.add('hidden');
+    document.getElementsByClassName('main-page')[0].classList.remove('hidden');
+    refresh();
+  }, 4000);
+};
+
+var Ending_end = function end(error, success) {
+  document.getElementsByClassName(searchActiveSection())[0].classList.add('hidden');
+  Ending_showModal(error, success);
+  setTimeout(function () {
+    var allUsed = Array.from(document.getElementsByClassName('used'));
+    allUsed.map(function (used) {
+      return used.classList.add('hidden');
+    });
+    GameReset();
+  }, 500);
+};
+
+/* harmony default export */ var Ending = (Ending_end);
 // CONCATENATED MODULE: ./src/scripts/shuffle.js
 var shuffle = function shuffle(arr) {
   var currentIndex = arr.length;
@@ -479,35 +504,65 @@ var shuffle = function shuffle(arr) {
 
 
 
+
 var gameButton_searchBtnOfSection = function searchBtnOfSection() {
   return document.getElementsByClassName(searchActiveSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0];
 };
 
 var currentArray = [];
 var gameButton_currentClick = '';
+var gameButton_error = 0;
+var gameButton_success = 0;
+
+var gameButton_toggleTextBtn = function toggleTextBtn() {
+  var active = document.getElementsByClassName(searchActiveSection())[0];
+  active.getElementsByClassName('game-start')[0].classList.add('hidden');
+  active.getElementsByClassName('game-repeat')[0].classList.remove('hidden');
+};
+
+var gameButton_right = function right(event) {
+  console.log(event.target.parentNode);
+  event.target.parentNode.classList.add('non-click');
+  gameButton_success += 1;
+  audioPlayer('Game', 'correct');
+  currentArray.splice(0, 1);
+};
+
+var gameButton_wrong = function wrong() {
+  audioPlayer('Game', 'error');
+  gameButton_error += 1;
+};
 
 var gameButton_cardClick = function cardClick(event) {
   if (Array.from(document.getElementsByClassName('main-content')[0].classList).includes('play')) {
-    console.log(document.getElementsByClassName('main-content')[0].classList);
-
     if (event.target.localName === 'img') {
-      gameButton_currentClick = event.target.nextSibling.innerText;
+      gameButton_currentClick = event.target.nextSibling.childNodes[0].innerText;
 
       if (gameButton_currentClick === currentArray[0]) {
-        audioPlayer('Game', 'success');
-        currentArray.splice(0, 1);
+        event.target.parentNode.previousSibling.classList.remove('hidden');
+        gameButton_right(event);
+
+        if (currentArray.length === 0) {
+          Ending(gameButton_error, gameButton_success);
+        }
+
         setTimeout(function () {
           audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
-        }, 2000);
+        }, 1000);
       } else {
-        audioPlayer('Game', 'error');
+        gameButton_wrong();
       }
     }
   }
 };
 
+document.addEventListener('click', function (event) {
+  return gameButton_cardClick(event);
+});
+
 var gameButton_createGameArray = function createGameArray() {
   gameButton_searchBtnOfSection().classList.add('repeat');
+  gameButton_toggleTextBtn();
   var gameArray = [];
   DATA_cards[1][DATA_cards[0][1].indexOf(searchActiveSection().replace(/\x2D/ig, ' '))].map(function (item) {
     gameArray.push(item.word);
@@ -515,6 +570,7 @@ var gameButton_createGameArray = function createGameArray() {
   });
   gameArray = scripts_shuffle(gameArray);
   currentArray = gameArray;
+  audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
   return gameArray;
 };
 
@@ -523,20 +579,29 @@ var gameButton_startGame = function startGame() {
 
   if (Array.from(gameButton_searchBtnOfSection().classList).includes('repeat')) {
     audioPlayer(searchActiveSection().replace(/\x2D/ig, ' '), currentArray[0]);
-    console.log('Массив уже создан');
   } else {
-    document.getElementsByClassName(searchActiveSection())[0].addEventListener('click', function (event) {
-      return gameButton_cardClick(event);
-    });
     gameButton_createGameArray();
   }
+};
+
+var createTextGameButton = function createTextGameButton() {
+  var frag = document.createDocumentFragment();
+  var spanGameStart = document.createElement('span');
+  spanGameStart.classList.add('game-start');
+  spanGameStart.appendChild(document.createTextNode('START GAME'));
+  var spanGameRepeat = document.createElement('span');
+  spanGameRepeat.className = 'game-repeat hidden';
+  spanGameRepeat.appendChild(document.createTextNode('REPEAT'));
+  frag.appendChild(spanGameStart);
+  frag.appendChild(spanGameRepeat);
+  return frag;
 };
 
 var gameButton = function gameButton() {
   var button = document.createElement('button');
   button.classList.add('game-button');
   button.setAttribute('type', 'button');
-  button.appendChild(document.createTextNode('START GAME'));
+  button.appendChild(createTextGameButton());
   button.addEventListener('click', gameButton_startGame);
   var shellButton = document.createElement('div');
   shellButton.classList.add('shell-button');
@@ -550,7 +615,23 @@ var createGameButton = function createGameButton() {
 };
 
 /* harmony default export */ var gameButton_gameButton = (createGameButton);
+// CONCATENATED MODULE: ./src/scripts/GetAllSpan.js
+var getAllSpan = function getAllSpan() {
+  return [Array.from(document.getElementsByClassName('eng')), Array.from(document.getElementsByClassName('rus'))];
+};
+
+/* harmony default export */ var GetAllSpan = (getAllSpan);
+// CONCATENATED MODULE: ./src/scripts/Used.js
+var used = function used() {
+  var div = document.createElement('div');
+  div.classList.add('used');
+  div.classList.add('hidden');
+  return div;
+};
+
+/* harmony default export */ var Used = (used);
 // CONCATENATED MODULE: ./src/UI/card/card.js
+
 
 
 
@@ -575,50 +656,42 @@ var card_playAudio = function playAudio(event) {
   }
 };
 
-var card_translateWord = function translateWord(pressCard) {
-  var translate = '';
-  var tempSections = Array.from(document.getElementsByClassName('section'));
-  tempSections.map(function (section, index) {
-    if (!Array.from(section.classList).includes('hidden')) {
-      for (var jey = 0; jey < DATA_cards[1][index].length; jey += 1) {
-        if (DATA_cards[1][index][jey].word === pressCard) {
-          translate = DATA_cards[1][index][jey].translation;
-        }
-      }
-    }
-
-    return true;
-  });
-  return translate;
-};
-
 var card_addCardAnimation = function addCardAnimation(event) {
   scripts_hideMenu();
   event.target.parentNode.parentNode.classList.add('card-animation');
-};
-
-var changeWord = function changeWord(event, word) {
   setTimeout(function () {
-    event.target.children[0].children[1].innerText = card_translateWord(word);
+    GetAllSpan()[0].map(function (span, index) {
+      if (span.innerText === event.target.nextSibling.innerText) {
+        GetAllSpan()[0][index].classList.toggle('hidden');
+        GetAllSpan()[1][index].classList.toggle('hidden');
+      }
+
+      return true;
+    });
   }, 500);
 };
 
-var removeCardAnimation = function removeCardAnimation(event, word) {
+var card_removeCardAnimation = function removeCardAnimation(event) {
   event.target.classList.remove('card-animation');
   setTimeout(function () {
-    event.target.children[0].children[1].innerText = word;
+    GetAllSpan()[1].map(function (span, index) {
+      if (span.innerText === event.target.innerText) {
+        GetAllSpan()[0][index].classList.toggle('hidden');
+        GetAllSpan()[1][index].classList.toggle('hidden');
+      }
+
+      return true;
+    });
   }, 700);
 };
 
-var gameCard = function gameCard(card, word) {
+var card_gameCard = function gameCard(card, word) {
+  card.appendChild(Used());
   card.addEventListener('click', function (event) {
     return card_addCardAnimation(event, word);
   });
   card.addEventListener('mouseleave', function (event) {
-    return removeCardAnimation(event, word);
-  });
-  card.addEventListener('transitionstart', function (event) {
-    return changeWord(event, word);
+    return card_removeCardAnimation(event, word);
   });
   card.addEventListener('click', function (event) {
     return card_playAudio(event);
@@ -626,32 +699,53 @@ var gameCard = function gameCard(card, word) {
   return card;
 };
 
-var createFigure = function createFigure(word, img) {
+var createFigcaption = function createFigcaption(word, translation) {
+  var fig = document.createElement('figcaption');
+  var spanOne = document.createElement('span');
+  spanOne.classList.add('eng');
+  spanOne.appendChild(document.createTextNode("".concat(word)));
+  fig.appendChild(spanOne);
+  var spanTwo = document.createElement('span');
+  spanTwo.className = 'rus hidden';
+  spanTwo.appendChild(document.createTextNode("".concat(translation)));
+  fig.appendChild(spanTwo);
+  return fig;
+};
+
+var createFigure = function createFigure(word, img, translation) {
   var figure = document.createElement('figure');
-  var figcaption = document.createElement('figcaption');
   figure.appendChild(img);
-  figure.appendChild(figcaption);
-  var textFigure = document.createTextNode("".concat(word));
-  figcaption.appendChild(textFigure);
+
+  if (translation) {
+    figure.appendChild(createFigcaption(word, translation));
+    figure.classList.add('card-figure');
+  } else {
+    var figcaption = document.createElement('figcaption');
+    var textFigcaption = document.createTextNode("".concat(word));
+    figcaption.appendChild(textFigcaption);
+    figure.appendChild(figcaption);
+  }
+
   return figure;
 };
 
-var createCard = function createCard(word, path, key) {
+var createCard = function createCard(arr, key) {
   var card = document.createElement('div');
-  card.classList.add('card');
   var img = document.createElement('img');
+  card.classList.add('card');
 
   if (key) {
     card.addEventListener('click', function (event) {
       return card_toggleMenu(event);
     });
-    img.src = "/images/cards/".concat(path, ".jpg");
+    img.src = "/images/cards/".concat(arr[0], ".jpg");
+    card.appendChild(createFigure(arr[0], img));
   } else {
-    gameCard(card, word);
-    img.src = "/images/cards/".concat(word, ".jpg");
+    card_gameCard(card, arr[0]);
+    img.src = "/images/cards/".concat(arr[0], ".jpg");
+    card.appendChild(createFigure(arr[0], img, arr[1]));
   }
 
-  card.appendChild(createFigure(word, img));
   return card;
 };
 
@@ -660,13 +754,13 @@ var createCard = function createCard(word, path, key) {
 
 
 
-var section_createSection = function createSection(arrSection, arrCards) {
+var section_createSection = function createSection(arrSection, arrCards, key) {
   var sections = document.createElement('div');
   sections.classList.add('sections');
   arrSection.map(function (item, index) {
     var section = document.createElement('div');
     arrCards[index].map(function (card) {
-      section.appendChild(card_card(card.word, item));
+      section.appendChild(card_card([card.word, card.translation], key));
       return true;
     });
     section.appendChild(gameButton_gameButton());
@@ -706,7 +800,7 @@ var main_page_createMainPage = function createMainPage(arrSection) {
     return true;
   });
   allCategories.map(function (category) {
-    mainPage.appendChild(card_card(category, category, true));
+    mainPage.appendChild(card_card([category, category], true));
     return true;
   });
   return mainPage;
@@ -714,8 +808,9 @@ var main_page_createMainPage = function createMainPage(arrSection) {
 
 /* harmony default export */ var main_page = (main_page_createMainPage);
 // CONCATENATED MODULE: ./src/modules/menu.js
-var selectedSection = function selectedSection(event) {
-  console.log("\u0412\u044B\u0431\u0440\u0430\u043D \u0440\u0430\u0437\u0434\u0435\u043B: ".concat(event.target.innerText));
+
+
+var menu_selectedSection = function selectedSection(event) {
   var allTd = Array.from(document.getElementsByClassName('td'));
   allTd.map(function (td) {
     return td.classList.remove('td');
@@ -729,6 +824,7 @@ var selectedSection = function selectedSection(event) {
     return section.classList.add('hidden');
   });
   document.getElementsByClassName(event.target.innerText.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-'))[0].classList.remove('hidden');
+  OffMode(false);
 };
 
 var createMenu = function createMenu(array) {
@@ -740,7 +836,7 @@ var createMenu = function createMenu(array) {
     var listItem = document.createElement('li');
     var link = document.createElement('a');
     link.addEventListener('click', function (event) {
-      return selectedSection(event);
+      return menu_selectedSection(event);
     });
     listItem.classList.add('item');
     var textlistItem = document.createTextNode("".concat(item));
@@ -754,7 +850,20 @@ var createMenu = function createMenu(array) {
 };
 
 /* harmony default export */ var menu = (createMenu);
+// CONCATENATED MODULE: ./src/modules/Modal.js
+var modal = function modal() {
+  var div = document.createElement('div');
+  div.classList.add('modal-window');
+  div.classList.add('hidden');
+  var window = document.createElement('div');
+  window.classList.add('window');
+  div.appendChild(window);
+  return div;
+};
+
+/* harmony default export */ var Modal = (modal);
 // CONCATENATED MODULE: ./src/App.js
+
 
 
 
@@ -767,6 +876,7 @@ App_container.append(menu(DATA_cards[0][0]));
 App_container.appendChild(modules_header());
 App_container.appendChild(main_content(DATA_cards[0][1], DATA_cards[1]));
 App_container.appendChild(main_page(DATA_cards[0][1]));
+App_container.appendChild(Modal());
 
 /***/ })
 /******/ ]);
