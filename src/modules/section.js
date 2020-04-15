@@ -1,14 +1,14 @@
 import createButton from '../UI/gameButton/gameButton'
 import createCard from '../UI/card/card'
 
-const createSection = (arrSection, arrCards) => {
+const createSection = (arrSection, arrCards, key) => {
   const sections = document.createElement('div')
   sections.classList.add('sections')
 
   arrSection.map((item, index) => {
     const section = document.createElement('div')
     arrCards[index].map((card) => {
-      section.appendChild(createCard(card.word, item))
+      section.appendChild(createCard([card.word, card.translation], key))
 
       return true
     })

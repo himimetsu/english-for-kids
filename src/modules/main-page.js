@@ -13,7 +13,7 @@ const createMainPage = (arrSection) => {
   })
 
   allCategories.map((category) => {
-    mainPage.appendChild(createCard(category, category, true))
+    mainPage.appendChild(createCard([category, category], true))
 
     return true
   })
