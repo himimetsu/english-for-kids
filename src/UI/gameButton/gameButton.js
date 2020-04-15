@@ -79,12 +79,30 @@ const startGame = () => {
   }
 }
 
+const createTextGameButton = () => {
+  const frag = document.createDocumentFragment()
+
+  const spanGameStart = document.createElement('span')
+  spanGameStart.classList.add('game-start')
+  spanGameStart.appendChild(document.createTextNode('START GAME'))
+
+  const spanGameRepeat = document.createElement('span')
+  spanGameRepeat.className = 'game-repeat hidden'
+  spanGameRepeat.appendChild(document.createTextNode('REPEAT'))
+
+  frag.appendChild(spanGameStart)
+  frag.appendChild(spanGameRepeat)
+
+  return frag
+}
+
 const gameButton = () => {
   const button = document.createElement('button')
   button.classList.add('game-button')
   button.setAttribute('type', 'button')
-  button.appendChild(document.createTextNode('START GAME'))
+  button.appendChild(createTextGameButton())
   button.addEventListener('click', startGame)
+
   const shellButton = document.createElement('div')
   shellButton.classList.add('shell-button')
   shellButton.classList.add('hidden')
