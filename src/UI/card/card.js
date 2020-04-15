@@ -1,6 +1,7 @@
-import cards from '../../DATA/cards'
+import getAllSpan from '../../scripts/GetAllSpan'
 import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
+import used from '../../scripts/Used'
 
 const toggleMenu = (event) => {
   hideMenu()
@@ -19,74 +20,89 @@ const playAudio = (event) => {
   }
 }
 
-const translateWord = (pressCard) => {
-  let translate = ''
-  const tempSections = Array.from(document.getElementsByClassName('section'))
-  tempSections.map((section, index) => {
-    if (!Array.from(section.classList).includes('hidden')) {
-      for (let jey = 0; jey < cards[1][index].length; jey += 1) {
-        if (cards[1][index][jey].word === pressCard) {
-          translate = cards[1][index][jey].translation
-        }
-      }
-    }
-
-    return true
-  })
-
-  return translate
-}
-
 const addCardAnimation = (event) => {
   hideMenu()
   event.target.parentNode.parentNode.classList.add('card-animation')
-}
-
-const changeWord = (event, word) => {
   setTimeout(() => {
-    event.target.children[0].children[1].innerText = translateWord(word)
+    getAllSpan()[0].map((span, index) => {
+      if (span.innerText === event.target.nextSibling.innerText) {
+        getAllSpan()[0][index].classList.toggle('hidden')
+        getAllSpan()[1][index].classList.toggle('hidden')
+      }
+
+      return true
+    })
   }, 500)
 }
 
-const removeCardAnimation = (event, word) => {
+const removeCardAnimation = (event) => {
   event.target.classList.remove('card-animation')
   setTimeout(() => {
-    event.target.children[0].children[1].innerText = word
+    getAllSpan()[1].map((span, index) => {
+      if (span.innerText === event.target.innerText) {
+        getAllSpan()[0][index].classList.toggle('hidden')
+        getAllSpan()[1][index].classList.toggle('hidden')
+      }
+
+      return true
+    })
   }, 700)
 }
 
 const gameCard = (card, word) => {
+  card.appendChild(used())
   card.addEventListener('click', (event) => addCardAnimation(event, word))
   card.addEventListener('mouseleave', (event) => removeCardAnimation(event, word))
-  card.addEventListener('transitionstart', (event) => changeWord(event, word))
   card.addEventListener('click', (event) => playAudio(event))
 
   return card
 }
 
-const createFigure = (word, img) => {
+const createFigcaption = (word, translation) => {
+  const fig = document.createElement('figcaption')
+
+  const spanOne = document.createElement('span')
+  spanOne.classList.add('eng')
+  spanOne.appendChild(document.createTextNode(`${word}`))
+  fig.appendChild(spanOne)
+
+  const spanTwo = document.createElement('span')
+  spanTwo.className = 'rus hidden'
+  spanTwo.appendChild(document.createTextNode(`${translation}`))
+  fig.appendChild(spanTwo)
+
+  return fig
+}
+
+const createFigure = (word, img, translation) => {
   const figure = document.createElement('figure')
-  const figcaption = document.createElement('figcaption')
   figure.appendChild(img)
-  figure.appendChild(figcaption)
-  const textFigure = document.createTextNode(`${word}`)
-  figcaption.appendChild(textFigure)
+  if (translation) {
+    figure.appendChild(createFigcaption(word, translation))
+    figure.classList.add('card-figure')
+  } else {
+    const figcaption = document.createElement('figcaption')
+    const textFigcaption = document.createTextNode(`${word}`)
+    figcaption.appendChild(textFigcaption)
+    figure.appendChild(figcaption)
+  }
 
   return figure
 }
 
-const createCard = (word, path, key) => {
+const createCard = (arr, key) => {
   const card = document.createElement('div')
-  card.classList.add('card')
   const img = document.createElement('img')
+  card.classList.add('card')
   if (key) {
     card.addEventListener('click', (event) => toggleMenu(event))
-    img.src = `/images/cards/${path}.jpg`
+    img.src = `/images/cards/${arr[0]}.jpg`
+    card.appendChild(createFigure(arr[0], img))
   } else {
-    gameCard(card, word)
-    img.src = `/images/cards/${word}.jpg`
+    gameCard(card, arr[0])
+    img.src = `/images/cards/${arr[0]}.jpg`
+    card.appendChild(createFigure(arr[0], img, arr[1]))
   }
-  card.appendChild(createFigure(word, img))
 
   return card
 }
