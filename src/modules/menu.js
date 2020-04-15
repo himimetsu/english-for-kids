@@ -1,3 +1,5 @@
+import off from '../scripts/OffMode'
+
 const selectedSection = (event) => {
   const allTd = Array.from(document.getElementsByClassName('td'))
   allTd.map((td) => td.classList.remove('td'))
@@ -8,7 +10,7 @@ const selectedSection = (event) => {
   menuBtn[0].classList.remove('openMenu')
   sections.map((section) => section.classList.add('hidden'))
   document.getElementsByClassName(event.target.innerText.replace(/\s/igu, '-'))[0].classList.remove('hidden')
-  document.getElementsByClassName('repeat')[0].classList.remove('repeat')
+  off(false)
 }
 
 const createMenu = (array) => {
