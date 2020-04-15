@@ -1,7 +1,6 @@
 body {
   margin: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background:linear-gradient(to right, rgb(118, 217, 238) 0%, rgb(160, 234, 250) 100%);
 }
 
 .container .hidden {
@@ -80,13 +79,12 @@ body {
 
 .card {
   margin: 20px 0;
+  border: 2px solid black;
   cursor: pointer;
 }
 
 .card figure {
   margin: 0;
-  border: 2px solid black;
-  border-radius: 10px;
   user-select: none;
 }
 
@@ -154,8 +152,36 @@ body {
   font-weight: 600;
 }
 
+.used {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.5;
+  background: black;
+  border-radius: 5px;
+}
 
+.non-click {
+  pointer-events: none;
+}
 
+.happy, .sad {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.window img {
+  height: 400px;
+}
+
+.window span {
+  width: 100%;
+  font-size: 30px;
+  color: red;
+  text-align: center;
+}
 
 /* SWITCH MODE BUTTON */
 .onoffswitch {
