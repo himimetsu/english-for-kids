@@ -1,8 +1,9 @@
 import hideMenu from '../../scripts/hideMenu'
+import off from '../../scripts/OffMode'
 
 const setFlag = (event) => {
   if (event.propertyName === 'right') {
-    document.getElementsByClassName('main-content')[0].classList.toggle('play')
+    off(true)
 
     const allShellButtons = Array.from(document.getElementsByClassName('shell-button'))
     allShellButtons.map((shellButton) => shellButton.classList.toggle('hidden'))
