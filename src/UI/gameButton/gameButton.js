@@ -4,6 +4,7 @@ import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
 import searchSection from '../../scripts/searchActiveSection'
 import shuffle from '../../scripts/shuffle'
+import stat from '../../scripts/LocalStatistics'
 
 const searchBtnOfSection = () => document.getElementsByClassName(searchSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0]
 
@@ -20,9 +21,11 @@ const toggleTextBtn = () => {
 
 const right = (event) => {
   console.log(event.target.parentNode)
+  console.log(event.target.classList)
   event.target.parentNode.classList.add('non-click')
   success += 1
   player('Game', 'correct')
+  stat(searchSection(), event.target.classList, ['game', 'right'])
   currentArray.splice(0, 1)
   if (currentArray.length === 0) {
     end(error, success)
@@ -32,6 +35,16 @@ const right = (event) => {
 }
 
 const wrong = () => {
+  let wron = ''
+  const allEng = Array.from(document.getElementsByClassName(searchSection())[0].getElementsByClassName('eng'))
+  allEng.map((eng) => {
+    if (eng.innerText === currentArray[0]) {
+      wron = eng.parentNode.previousSibling.classList
+    }
+
+    return true
+  })
+  stat(searchSection(), wron, ['game', 'wrong'])
   player('Game', 'error')
   error += 1
 }
