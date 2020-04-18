@@ -137,7 +137,7 @@ var cards = [[['Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)'
   translation: 'петь'
 }, {
   word: 'skip',
-  translation: 'пропускать, прыгать'
+  translation: 'пропускать прыгать'
 }, {
   word: 'swim',
   translation: 'плавать'
@@ -361,7 +361,216 @@ var modeSwitch_createSwitch = function createSwitch() {
 };
 
 /* harmony default export */ var switchBtn_modeSwitch = (modeSwitch_createSwitch);
+// CONCATENATED MODULE: ./src/scripts/LocalStore.js
+
+var iter = 0;
+
+var LocalStore_createLocalStore = function createLocalStore() {
+  if (localStorage.key('LocalStatistics') === null) {
+    localStorage.setItem('LocalStatistics', '');
+    DATA_cards[0][1].map(function (section, index) {
+      DATA_cards[1][index].map(function (item) {
+        localStorage.setItem("statistics".concat(iter), [section, item.word, item.translation, 0, 0, 0, 0]);
+        iter += 1;
+        return true;
+      });
+      return true;
+    });
+  }
+};
+
+/* harmony default export */ var LocalStore = (LocalStore_createLocalStore);
+// CONCATENATED MODULE: ./src/UI/StatisticsBtn/StatisticsBtn.js
+
+
+
+var StatisticsBtn_resetStatistics = function resetStatistics() {
+  LocalStore();
+  OpenStatBtn_renderStatistics();
+};
+
+var StatisticsBtn_reset = function reset() {
+  var div = document.createElement('div');
+  div.addEventListener('click', function () {
+    return StatisticsBtn_resetStatistics();
+  });
+  div.classList.add('shell-reset-btn');
+  var btn = document.createElement('button');
+  var btnText = document.createTextNode('Reset');
+  btn.appendChild(btnText);
+  div.appendChild(btn);
+  return div;
+};
+
+var repeat = function repeat() {
+  var div = document.createElement('div');
+  div.classList.add('shell-repeat-btn');
+  var btn = document.createElement('button');
+  var btnText = document.createTextNode('Repeat words');
+  btn.appendChild(btnText);
+  div.appendChild(btn);
+  return div;
+};
+
+var createStatisticsBtn = function createStatisticsBtn() {
+  var div = document.createElement('div');
+  div.classList.add('statistics-btn');
+  div.appendChild(StatisticsBtn_reset());
+  div.appendChild(repeat());
+  return div;
+};
+
+/* harmony default export */ var StatisticsBtn = (createStatisticsBtn);
+// CONCATENATED MODULE: ./src/scripts/TableSort.js
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function getSort(_ref) {
+  var target = _ref.target;
+  var order = target.dataset.order = -(target.dataset.order || -1);
+  var thList = Array.from(target.parentNode.cells);
+  var index = thList.indexOf(target);
+  var collator = new Intl.Collator(["en", "ru"], {
+    numeric: true
+  });
+
+  var comparator = function comparator(index, order) {
+    return function (a, b) {
+      return order * collator.compare(a.children[index].textContent, b.children[index].textContent);
+    };
+  };
+
+  var tablesBodies = Array.from(target.closest("table").tBodies);
+  tablesBodies.forEach(function (tBody) {
+    tBody.append.apply(tBody, _toConsumableArray(Array.from(tBody.rows).sort(comparator(index, order))));
+  });
+  thList.forEach(function (th) {
+    return th.classList.toggle("sorted", th === target);
+  });
+}
+
+/* harmony default export */ var TableSort = (getSort);
+// CONCATENATED MODULE: ./src/modules/statistics-table.js
+
+
+var createTd = function createTd(iter) {
+  var frag = document.createDocumentFragment(); // console.log(localStorage.getItem(`statistics${iter}`).split(','))
+
+  var currentLocal = localStorage.getItem("statistics".concat(iter)).split(',');
+
+  for (var jei = 0; jei < 7; jei += 1) {
+    var td = document.createElement('td');
+    var textTd = currentLocal[jei];
+    td.append(textTd);
+    frag.append(td);
+  }
+
+  return frag;
+};
+
+var sectionTr = function sectionTr() {
+  var frag = document.createDocumentFragment();
+
+  for (var iter = 0; iter < 48; iter += 1) {
+    var tr = document.createElement('tr');
+    tr.appendChild(createTd(iter));
+    frag.appendChild(tr);
+  }
+
+  return frag;
+};
+
+var createTbody = function createTbody() {
+  var frag = document.createDocumentFragment();
+  var body = document.createElement('tbody');
+  body.appendChild(sectionTr());
+  frag.appendChild(body);
+  return frag;
+};
+
+var statistics_table_createTh = function createTh() {
+  var arrTh = ['Section', 'Word', 'Translate', 'Success', 'Error', 'Train', '%'];
+  var frag = document.createDocumentFragment();
+  arrTh.map(function (name) {
+    var th = document.createElement('th');
+    th.classList.add('control');
+    th.addEventListener('click', function (event) {
+      return TableSort(event);
+    });
+    var textTh = document.createTextNode(name);
+    th.appendChild(textTh);
+    frag.appendChild(th);
+    return true;
+  });
+  return frag;
+};
+
+var createTableHead = function createTableHead() {
+  var table = document.createElement('table');
+  table.classList.add('table-sort');
+  var thead = document.createElement('thead');
+  var tr = document.createElement('tr');
+  tr.appendChild(statistics_table_createTh());
+  thead.appendChild(tr);
+  table.appendChild(thead);
+  table.appendChild(createTbody());
+  return table;
+};
+
+var createTable = function createTable() {
+  var frag = document.createDocumentFragment();
+  var div = document.createElement('div');
+  div.classList.add('statistics-table');
+  div.appendChild(createTableHead());
+  frag.appendChild(div);
+  return frag;
+};
+
+/* harmony default export */ var statistics_table = (createTable);
+// CONCATENATED MODULE: ./src/UI/OpenStatBtn/OpenStatBtn.js
+
+
+var OpenStatBtn_renderStatistics = function renderStatistics() {
+  var statisticks = document.getElementsByClassName('statistics')[0];
+
+  if (document.getElementsByClassName('statistics-table').length > 0) {
+    var arrStatChild = Array.from(statisticks.children);
+    arrStatChild.map(function (stat) {
+      return stat.remove();
+    });
+    statisticks.appendChild(statistics_table());
+    statisticks.appendChild(StatisticsBtn());
+  } else {
+    statisticks.appendChild(statistics_table());
+    statisticks.appendChild(StatisticsBtn());
+  }
+};
+
+var openStat = function openStat() {
+  var div = document.createElement('div');
+  div.classList.add('open-stat-btn');
+  div.addEventListener('click', function () {
+    return OpenStatBtn_renderStatistics();
+  });
+  var btn = document.createElement('button');
+  var textBtn = document.createTextNode('STATISTICS');
+  btn.appendChild(textBtn);
+  div.appendChild(btn);
+  return div;
+};
+
+/* harmony default export */ var OpenStatBtn = (openStat);
 // CONCATENATED MODULE: ./src/modules/header.js
+
 
 
 
@@ -369,6 +578,7 @@ var header_createHeader = function createHeader() {
   var header = document.createElement('div');
   header.classList.add('header');
   header.appendChild(callMenu());
+  header.appendChild(OpenStatBtn());
   header.appendChild(switchBtn_modeSwitch());
   return header;
 };
@@ -508,7 +718,27 @@ var shuffle = function shuffle(arr) {
 };
 
 /* harmony default export */ var scripts_shuffle = (shuffle);
+// CONCATENATED MODULE: ./src/scripts/LocalStatistics.js
+var stat = function stat(section, eng, arr) {
+  var currentStat = localStorage.getItem(eng).split(',');
+  console.log(localStorage.getItem(eng));
+
+  if (arr[0] === 'game') {
+    if (arr[1] === 'right') {
+      currentStat[3] = currentStat[3] / 1 + 1;
+    } else if (arr[1] === 'wrong') {
+      currentStat[4] = currentStat[4] / 1 + 1;
+    }
+  } else if (arr[0] === 'train') {
+    currentStat[5] = currentStat[5] / 1 + 1;
+  }
+
+  localStorage.setItem(eng, currentStat);
+};
+
+/* harmony default export */ var LocalStatistics = (stat);
 // CONCATENATED MODULE: ./src/UI/gameButton/gameButton.js
+
 
 
 
@@ -533,9 +763,11 @@ var gameButton_toggleTextBtn = function toggleTextBtn() {
 
 var gameButton_right = function right(event) {
   console.log(event.target.parentNode);
+  console.log(event.target.classList);
   event.target.parentNode.classList.add('non-click');
   gameButton_success += 1;
   audioPlayer('Game', 'correct');
+  LocalStatistics(searchActiveSection(), event.target.classList, ['game', 'right']);
   currentArray.splice(0, 1);
 
   if (currentArray.length === 0) {
@@ -545,7 +777,14 @@ var gameButton_right = function right(event) {
   }
 };
 
-var gameButton_wrong = function wrong() {
+var gameButton_wrong = function wrong(event) {
+  var allEng = Array.from(document.getElementsByClassName(searchActiveSection())[0].getElementsByClassName('eng'));
+  allEng.map(function (eng) {
+    if (eng === currentArray[0]) {
+      console.log(eng.parentNode.previousSibling);
+    }
+  });
+  LocalStatistics(searchActiveSection(), event.target.classList, ['game', 'wrong']);
   audioPlayer('Game', 'error');
   gameButton_error += 1;
 };
@@ -648,6 +887,7 @@ var used = function used() {
 
 
 
+
 var card_toggleMenu = function toggleMenu(event) {
   scripts_hideMenu();
   document.getElementsByClassName('main-page')[0].classList.add('hidden');
@@ -665,6 +905,7 @@ var card_playAudio = function playAudio(event) {
 
   if (!document.getElementsByClassName('main-content')[0].classList[1]) {
     audioPlayer(currentSection, currentCard);
+    LocalStatistics(currentSection.replace(/[\t-\r \xA0\u1680\u2000-\u200A\u2028\u2029\u202F\u205F\u3000\uFEFF]/ig, '-'), event.target.classList, ['train', null]);
   }
 };
 
@@ -741,6 +982,8 @@ var createFigure = function createFigure(word, img, translation) {
   return figure;
 };
 
+var card_iter = 0;
+
 var createCard = function createCard(arr, key) {
   var card = document.createElement('div');
   var img = document.createElement('img');
@@ -755,6 +998,8 @@ var createCard = function createCard(arr, key) {
   } else {
     card_gameCard(card, arr[0]);
     img.src = "/images/cards/".concat(arr[0], ".jpg");
+    img.classList.add("statistics".concat(card_iter));
+    card_iter += 1;
     card.appendChild(createFigure(arr[0], img, arr[1]));
   }
 
@@ -862,6 +1107,14 @@ var createMenu = function createMenu(array) {
 };
 
 /* harmony default export */ var menu = (createMenu);
+// CONCATENATED MODULE: ./src/modules/statistics.js
+var createStatistics = function createStatistics() {
+  var div = document.createElement('div');
+  div.className = 'statistics hidden';
+  return div;
+};
+
+/* harmony default export */ var statistics = (createStatistics);
 // CONCATENATED MODULE: ./src/modules/Modal.js
 var modal = function modal() {
   var div = document.createElement('div');
@@ -882,6 +1135,8 @@ var modal = function modal() {
 
 
 
+
+
 document.body.appendChild(container());
 var App_container = document.getElementsByClassName('container')[0];
 App_container.append(menu(DATA_cards[0][0]));
@@ -889,6 +1144,8 @@ App_container.appendChild(modules_header());
 App_container.appendChild(main_content(DATA_cards[0][1], DATA_cards[1]));
 App_container.appendChild(main_page(DATA_cards[0][1]));
 App_container.appendChild(Modal());
+LocalStore();
+App_container.appendChild(statistics());
 
 /***/ })
 /******/ ]);

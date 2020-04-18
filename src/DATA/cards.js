@@ -69,7 +69,7 @@ const cards = [
     },
     {
       word: 'skip',
-      translation: 'пропускать, прыгать',
+      translation: 'пропускать прыгать',
     },
     {
       word: 'swim',
