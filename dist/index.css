@@ -21,9 +21,17 @@ body {
 }
 
 .header {
-  padding: 10px 0;
   display: flex;
   justify-content: space-between;
+}
+
+.card-figure .eng {
+  display: flex;
+  justify-content: center;
+}
+
+.card-figure .eng img {
+  width: 48px;
 }
 
 .btn-call-menu {
@@ -181,6 +189,48 @@ body {
   font-size: 30px;
   color: red;
   text-align: center;
+}
+
+.statistics-btn {
+  display: flex;
+  justify-content: space-around;
+}
+
+.statistics-btn button {
+  padding: 5px;
+  color: white;
+  font-size: 20px;
+  background: linear-gradient(40deg,#00bf82,#0099ae);
+  border-radius: 10px;
+  border-width: 0;
+}
+
+.table-sort {
+  background: linear-gradient(40deg,#00bf82,#0099ae);
+  color: white;
+}
+
+.statistics table {
+  margin: 0 auto;
+}
+
+.statistics td, th {
+  text-align: center;
+  border: 2px solid white;
+}
+
+.statistics th, td {
+  padding: 5px;
+}
+
+.open-stat-btn button {
+  padding: 14px;
+  background: linear-gradient(40deg,#00bf82,#0099ae);
+  border-width: 0;
+  font-weight: 700;
+  border-radius: 10px;
+  color: white;
+  letter-spacing: 1px;
 }
 
 /* SWITCH MODE BUTTON */
