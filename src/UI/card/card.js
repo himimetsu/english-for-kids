@@ -1,6 +1,7 @@
 import getAllSpan from '../../scripts/GetAllSpan'
 import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
+import stat from '../../scripts/LocalStatistics'
 import used from '../../scripts/Used'
 
 const toggleMenu = (event) => {
@@ -17,6 +18,7 @@ const playAudio = (event) => {
   const currentSection = event.target.parentNode.parentNode.parentNode.classList[1].replace(/-/igu, ' ')
   if (!document.getElementsByClassName('main-content')[0].classList[1]) {
     player(currentSection, currentCard)
+    stat(currentSection.replace(/\s/igu, '-'), event.target.classList, ['train', null])
   }
 }
 
@@ -90,6 +92,8 @@ const createFigure = (word, img, translation) => {
   return figure
 }
 
+let iter = 0
+
 const createCard = (arr, key) => {
   const card = document.createElement('div')
   const img = document.createElement('img')
@@ -101,6 +105,8 @@ const createCard = (arr, key) => {
   } else {
     gameCard(card, arr[0])
     img.src = `/images/cards/${arr[0]}.jpg`
+    img.classList.add(`statistics${iter}`)
+    iter += 1
     card.appendChild(createFigure(arr[0], img, arr[1]))
   }
 
