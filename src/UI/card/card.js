@@ -16,10 +16,15 @@ const toggleMenu = (event) => {
 
 const playAudio = (event) => {
   const currentCard = event.target.parentNode.parentNode.innerText
-  const currentSection = event.target.parentNode.parentNode.parentNode.classList[1].replace(/-/igu, ' ')
   if (!document.getElementsByClassName('main-content')[0].classList[1]) {
-    player(currentSection, currentCard)
-    stat(currentSection.replace(/\s/igu, '-'), event.target.classList, ['train', null])
+    let currentClick = ''
+    if (event.target.localName === 'span') {
+      currentClick = event.target.parentNode.previousSibling.classList
+    } else if (event.target.classList.length === 0) {
+      currentClick = event.target.parentNode.parentNode.previousSibling.classList
+    } else {
+      currentClick = event.target.classList
+    }
     player(searchSection().replace(/-/igu, ' '), currentCard)
     stat(searchSection().replace(/\s/igu, '-'), currentClick, ['train', null])
   }
@@ -27,10 +32,10 @@ const playAudio = (event) => {
 
 const addCardAnimation = (event) => {
   hideMenu()
-  event.target.parentNode.parentNode.classList.add('card-animation')
+  event.target.parentNode.parentNode.parentNode.parentNode.classList.add('card-animation')
   setTimeout(() => {
     getAllSpan()[0].map((span, index) => {
-      if (span.innerText === event.target.nextSibling.innerText) {
+      if (span.innerText === event.target.previousSibling.textContent) {
         getAllSpan()[0][index].classList.toggle('hidden')
         getAllSpan()[1][index].classList.toggle('hidden')
       }
