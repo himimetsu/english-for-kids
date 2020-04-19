@@ -19,22 +19,10 @@ const reset = () => {
   return div
 }
 
-const repeat = () => {
-  const div = document.createElement('div')
-  div.classList.add('shell-repeat-btn')
-  const btn = document.createElement('button')
-  const btnText = document.createTextNode('Repeat words')
-  btn.appendChild(btnText)
-  div.appendChild(btn)
-
-  return div
-}
-
 const createStatisticsBtn = () => {
   const div = document.createElement('div')
   div.classList.add('statistics-btn')
   div.appendChild(reset())
-  div.appendChild(repeat())
 
   return div
 }
