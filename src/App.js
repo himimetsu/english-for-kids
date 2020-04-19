@@ -6,7 +6,7 @@ import createMainContent from './modules/main-content'
 import createMainPage from './modules/main-page'
 import createMenu from './modules/menu'
 import createStatistics from './modules/statistics'
-import modal from './modules/Modal'
+import modal from './modules/modal'
 
 document.body.appendChild(createContainer())
 const container = document.getElementsByClassName('container')[0]
