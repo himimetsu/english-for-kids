@@ -6,6 +6,19 @@ import searchSection from '../../scripts/searchActiveSection'
 import shuffle from '../../scripts/shuffle'
 import stat from '../../scripts/LocalStatistics'
 
+const addStar = (key) => {
+  const fieldStar = document.getElementsByClassName('field-stars')[0]
+  if (key) {
+    const win = document.createElement('img')
+    win.src = '/images/cards/star-win.svg'
+    fieldStar.insertBefore(win, fieldStar.firstChild)
+  } else {
+    const wrong = document.createElement('img')
+    wrong.src = '/images/cards/star.svg'
+    fieldStar.insertBefore(wrong, fieldStar.firstChild)
+  }
+}
+
 const searchBtnOfSection = () => document.getElementsByClassName(searchSection())[0].getElementsByClassName('shell-button')[0].getElementsByClassName('game-button')[0]
 
 let currentArray = []
@@ -20,6 +33,7 @@ const toggleTextBtn = () => {
 }
 
 const right = (event) => {
+  addStar(true)
   event.target.parentNode.classList.add('non-click')
   success += 1
   player('Game', 'correct')
@@ -33,6 +47,7 @@ const right = (event) => {
 }
 
 const wrong = () => {
+  addStar(false)
   let wron = ''
   const allEng = Array.from(document.getElementsByClassName(searchSection())[0].getElementsByClassName('eng'))
   allEng.map((eng) => {
