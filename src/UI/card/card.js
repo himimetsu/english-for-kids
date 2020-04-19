@@ -62,14 +62,21 @@ const gameCard = (card, word) => {
   return card
 }
 
-const createFigcaption = (word, translation) => {
-  const fig = document.createElement('figcaption')
-
+const eng = (word) => {
   const spanOne = document.createElement('span')
+  const img = document.createElement('img')
+  img.addEventListener('click', (event) => addCardAnimation(event))
+  img.src = '/images/cards/rotate.png'
   spanOne.classList.add('eng')
   spanOne.appendChild(document.createTextNode(`${word}`))
-  fig.appendChild(spanOne)
+  spanOne.appendChild(img)
 
+  return spanOne
+}
+
+const createFigcaption = (word, translation) => {
+  const fig = document.createElement('figcaption')
+  fig.appendChild(eng(word))
   const spanTwo = document.createElement('span')
   spanTwo.className = 'rus hidden'
   spanTwo.appendChild(document.createTextNode(`${translation}`))
