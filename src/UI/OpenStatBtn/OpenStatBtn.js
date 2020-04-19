@@ -4,6 +4,7 @@ import off from '../../scripts/OffMode'
 import searchSection from '../../scripts/SearchActiveSection'
 
 const showStatistics = () => {
+  document.getElementsByClassName('btn-call-menu')[0].classList.remove('open')
   off()
   if (document.getElementsByClassName('statistics')[0].classList[1] === 'hidden') {
     document.getElementsByClassName('statistics')[0].classList.remove('hidden')
