@@ -1,5 +1,5 @@
-import createCallMenu from '../UI/callMenu/callMenu'
-import createSwitch from '../UI/switchBtn/modeSwitch'
+import createCallMenu from '../UI/CallMenu/CallMenu'
+import createSwitch from '../UI/SwitchBtn/ModeSwitch'
 import openStat from '../UI/OpenStatBtn/OpenStatBtn'
 
 const createHeader = () => {

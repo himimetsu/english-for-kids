@@ -1,8 +1,8 @@
 import clear from './ClearWindow'
 import off from './OffMode'
-import player from './audioPlayer'
+import player from './AudioPlayer'
 import reset from './GameReset'
-import searchSection from './searchActiveSection'
+import searchSection from './SearchActiveSection'
 
 const sadText = (error) => {
   const frag = document.createDocumentFragment()

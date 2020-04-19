@@ -1,4 +1,4 @@
-import createButton from '../UI/gameButton/gameButton'
+import createButton from '../UI/GameButton/GameButton'
 import createCard from '../UI/card/card'
 
 const createSection = (arrSection, arrCards, key) => {
