@@ -11,8 +11,9 @@ body {
   display: none;
 }
 
-.td {
+.item .td {
   text-decoration: underline;
+  color: cyan;
 }
 
 .container {
@@ -76,6 +77,15 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.main-page img {
+  height: 200px;
+}
+
+img[class*='statistics'] {
+  height: 200px;
+  width: 100%;
 }
 
 .card {
@@ -144,6 +154,10 @@ body {
   width: auto;
 }
 
+.shell-reset-btn {
+  text-align: center;
+}
+
 .main-page {
   display: flex;
   flex-wrap: wrap;
@@ -186,11 +200,12 @@ body {
 
 .statistics-btn {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .statistics-btn button {
-  padding: 5px;
+  padding: 14px;
   color: white;
   font-size: 20px;
   background: linear-gradient(40deg,#00bf82,#0099ae);
@@ -205,6 +220,7 @@ body {
 
 .statistics table {
   margin: 0 auto;
+  font-size: 25px;
 }
 
 .statistics td, th {
@@ -224,6 +240,11 @@ body {
   border-radius: 10px;
   color: white;
   letter-spacing: 1px;
+}
+
+.field-stars {
+  overflow: hidden;
+  height: 64px;
 }
 
 /* SWITCH MODE BUTTON */
@@ -357,4 +378,103 @@ body {
   transform: rotate(-45deg);
   top: 39px;
   left: 8px;
+}
+
+/* MEDIA */
+
+@media only screen and (max-width: 1000px) {
+  .menu {
+    position: fixed;
+    left: -30%;
+    top: 0;
+    width: 30%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(40deg,#00bf82,#0099ae);
+    transition: ease all 0.5s;
+  }
+
+  .openMenu {
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 911px) {
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .main-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .statistics table {
+    margin: 0 auto;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+    .menu {
+    position: fixed;
+    left: -40%;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(40deg,#00bf82,#0099ae);
+    transition: ease all 0.5s;
+  }
+
+  .openMenu {
+    left: 0;
+  }
+
+  .statistics table {
+    margin: 0 auto;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .menu {
+    position: fixed;
+    left: -54%;
+    top: 0;
+    width: 54%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(40deg,#00bf82,#0099ae);
+    transition: ease all 0.5s;
+  }
+
+  .openMenu {
+    left: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .statistics table {
+    margin: 0 auto;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .statistics table {
+    margin: 0 auto;
+    font-size: 8px;
+  }
 }
