@@ -1,4 +1,4 @@
-import hideMenu from '../../scripts/hideMenu'
+import hideMenu from '../../scripts/HideMenu'
 import off from '../../scripts/OffMode'
 
 const setFlag = (event) => {
