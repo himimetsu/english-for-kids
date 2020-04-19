@@ -4,30 +4,23 @@ import player from './audioPlayer'
 import reset from './GameReset'
 import searchSection from './searchActiveSection'
 
-const sadText = (error, success) => {
+const sadText = (error) => {
   const frag = document.createDocumentFragment()
-
-  const succSpan = document.createElement('span')
-  succSpan.classList.add('success')
-  succSpan.appendChild(document.createTextNode(`Success: ${success}`))
-
   const failSpan = document.createElement('span')
   failSpan.classList.add('fail')
   failSpan.appendChild(document.createTextNode(`Error: ${error}`))
-
-  frag.appendChild(succSpan)
   frag.appendChild(failSpan)
 
   return frag
 }
 
-const sad = (error, success) => {
+const sad = (error) => {
   const div = document.createElement('div')
   div.classList.add('sad')
   const img = document.createElement('img')
   img.src = '/images/cards/failure.jpg'
   div.appendChild(img)
-  div.appendChild(sadText(error, success))
+  div.appendChild(sadText(error))
 
   return div
 }
