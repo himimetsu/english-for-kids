@@ -2,7 +2,6 @@ import getSort from '../scripts/TableSort'
 
 const createTd = (iter) => {
   const frag = document.createDocumentFragment()
-  // console.log(localStorage.getItem(`statistics${iter}`).split(','))
   let currentLocal = localStorage.getItem(`statistics${iter}`).split(',')
   for (let jei = 0; jei < 7; jei += 1) {
     let td = document.createElement('td')
@@ -16,7 +15,7 @@ const createTd = (iter) => {
 
 const sectionTr = () => {
   const frag = document.createDocumentFragment()
-  for (let iter = 0; iter < 48; iter += 1) {
+  for (let iter = 0; iter < 64; iter += 1) {
     let tr = document.createElement('tr')
     tr.appendChild(createTd(iter))
     frag.appendChild(tr)
