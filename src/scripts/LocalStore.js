@@ -1,7 +1,7 @@
 import cards from '../DATA/cards'
 
-let iter = 0
 const createLocalStore = () => {
+  let iter = 0
   if (localStorage.key('LocalStatistics') === null) {
     localStorage.setItem('LocalStatistics', '')
     cards[0][1].map((section, index) => {
