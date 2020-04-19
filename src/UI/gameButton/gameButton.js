@@ -1,9 +1,9 @@
 import cards from '../../DATA/cards'
 import end from '../../scripts/Ending'
-import hideMenu from '../../scripts/hideMenu'
-import player from '../../scripts/audioPlayer'
-import searchSection from '../../scripts/searchActiveSection'
-import shuffle from '../../scripts/shuffle'
+import hideMenu from '../../scripts/HideMenu'
+import player from '../../scripts/AudioPlayer'
+import searchSection from '../../scripts/SearchActiveSection'
+import shuffle from '../../scripts/Shuffle'
 import stat from '../../scripts/LocalStatistics'
 
 const addStar = (key) => {
