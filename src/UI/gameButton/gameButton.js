@@ -20,8 +20,6 @@ const toggleTextBtn = () => {
 }
 
 const right = (event) => {
-  console.log(event.target.parentNode)
-  console.log(event.target.classList)
   event.target.parentNode.classList.add('non-click')
   success += 1
   player('Game', 'correct')
