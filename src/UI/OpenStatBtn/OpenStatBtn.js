@@ -1,5 +1,7 @@
 import createStatisticsBtn from '../StatisticsBtn/StatisticsBtn'
 import createTable from '../../modules/statistics-table'
+import off from '../../scripts/OffMode'
+import searchSection from '../../scripts/SearchActiveSection'
 
 const showStatistics = () => {
   off()
