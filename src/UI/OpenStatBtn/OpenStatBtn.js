@@ -1,6 +1,18 @@
 import createStatisticsBtn from '../StatisticsBtn/StatisticsBtn'
 import createTable from '../../modules/statistics-table'
 
+const showStatistics = () => {
+  off()
+  if (document.getElementsByClassName('statistics')[0].classList[1] === 'hidden') {
+    document.getElementsByClassName('statistics')[0].classList.remove('hidden')
+  }
+  if (document.getElementsByClassName('main-page')[0].classList[1] !== 'hidden') {
+    document.getElementsByClassName('main-page')[0].classList.add('hidden')
+  }
+  if (searchSection()) {
+    document.getElementsByClassName(searchSection())[0].classList.add('hidden')
+  }
+}
 export const renderStatistics = () => {
   const statisticks = document.getElementsByClassName('statistics')[0]
   if (document.getElementsByClassName('statistics-table').length > 0) {
@@ -12,6 +24,7 @@ export const renderStatistics = () => {
     statisticks.appendChild(createTable())
     statisticks.appendChild(createStatisticsBtn())
   }
+  showStatistics()
 }
 
 const openStat = () => {
