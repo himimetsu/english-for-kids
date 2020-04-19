@@ -467,7 +467,7 @@ var StatisticsBtn_reset = function reset() {
   });
   div.classList.add('shell-reset-btn');
   var btn = document.createElement('button');
-  var btnText = document.createTextNode('Reset');
+  var btnText = document.createTextNode('RESET');
   btn.appendChild(btnText);
   div.appendChild(btn);
   return div;
@@ -557,7 +557,7 @@ var createTbody = function createTbody() {
 };
 
 var statistics_table_createTh = function createTh() {
-  var arrTh = ['Section', 'Word', 'Translate', 'Success', 'Error', 'Train', '%'];
+  var arrTh = ['Section', 'Word', 'Translate', 'Success', 'Error', 'Train', '% Error'];
   var frag = document.createDocumentFragment();
   arrTh.map(function (name) {
     var th = document.createElement('th');
@@ -1267,13 +1267,15 @@ var modal = function modal() {
 
 document.body.appendChild(container());
 var App_container = document.getElementsByClassName('container')[0];
-App_container.append(menu(DATA_cards[0][0]));
-App_container.appendChild(modules_header());
-App_container.appendChild(main_content(DATA_cards[0][1], DATA_cards[1]));
-App_container.appendChild(main_page(DATA_cards[0][1]));
-App_container.appendChild(modules_modal());
+var App_frag = document.createDocumentFragment();
+App_frag.append(menu(DATA_cards[0][0]));
+App_frag.appendChild(modules_header());
+App_frag.appendChild(main_content(DATA_cards[0][1], DATA_cards[1]));
+App_frag.appendChild(main_page(DATA_cards[0][1]));
+App_frag.appendChild(modules_modal());
 LocalStore();
-App_container.appendChild(statistics());
+App_frag.appendChild(statistics());
+App_container.appendChild(App_frag);
 
 /***/ })
 /******/ ]);

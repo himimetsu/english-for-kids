@@ -34,7 +34,7 @@ const createTbody = () => {
 }
 
 const createTh = () => {
-  const arrTh = ['Section', 'Word', 'Translate', 'Success', 'Error', 'Train', '%']
+  const arrTh = ['Section', 'Word', 'Translate', 'Success', 'Error', 'Train', '% Error']
   const frag = document.createDocumentFragment()
   arrTh.map((name) => {
     const th = document.createElement('th')

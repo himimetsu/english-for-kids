@@ -35,6 +35,12 @@ body {
   width: 48px;
 }
 
+.control {
+  cursor: pointer;
+  user-select: none;
+  color: chartreuse;
+}
+
 .menu {
   position: fixed;
   left: -20%;

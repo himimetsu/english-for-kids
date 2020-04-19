@@ -10,10 +10,12 @@ import modal from './modules/modal'
 
 document.body.appendChild(createContainer())
 const container = document.getElementsByClassName('container')[0]
-container.append(createMenu(cards[0][0]))
-container.appendChild(createHeader())
-container.appendChild(createMainContent(cards[0][1], cards[1]))
-container.appendChild(createMainPage(cards[0][1]))
-container.appendChild(modal())
+const frag = document.createDocumentFragment()
+frag.append(createMenu(cards[0][0]))
+frag.appendChild(createHeader())
+frag.appendChild(createMainContent(cards[0][1], cards[1]))
+frag.appendChild(createMainPage(cards[0][1]))
+frag.appendChild(modal())
 createLocalStore()
-container.appendChild(createStatistics())
+frag.appendChild(createStatistics())
+container.appendChild(frag)

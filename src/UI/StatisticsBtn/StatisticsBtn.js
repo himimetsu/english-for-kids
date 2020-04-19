@@ -12,7 +12,7 @@ const reset = () => {
   div.addEventListener('click', () => resetStatistics())
   div.classList.add('shell-reset-btn')
   const btn = document.createElement('button')
-  const btnText = document.createTextNode('Reset')
+  const btnText = document.createTextNode('RESET')
   btn.appendChild(btnText)
   div.appendChild(btn)
 
