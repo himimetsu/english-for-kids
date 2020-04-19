@@ -4,7 +4,7 @@ const cards = [
     'Main Page', 'Action (Set A)', 'Action (Set B)', 'Action (Set C)', 'Animal (Set A)',
     'Animal (Set B)', 'Adjective', 'Clothes', 'Emotions'
   ], [
-    'Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'
+      'Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Adjective', 'Action (set C)' 
   ]],
 
 [
@@ -211,7 +211,75 @@ const cards = [
       word: 'laugh',
       translation: 'смех',
     }
-  ]
+  ],
+  [
+    {
+      word: 'dirty',
+      translation: 'грязный',
+    },
+    {
+      word: 'clever',
+      translation: 'умный',
+    },
+    {
+      word: 'fast',
+      translation: 'быстрый',
+    },
+    {
+      word: 'heavy',
+      translation: 'тяжёлый',
+    },
+    {
+      word: 'full',
+      translation: 'полный',
+    },
+    {
+      word: 'strong',
+      translation: 'сильный',
+    },
+    {
+      word: 'brave',
+      translation: 'храбрый',
+    },
+    {
+      word: 'clean',
+      translation: 'чистый',
+    }
+  ],
+  [
+    {
+      word: 'read',
+      translation: 'читать',
+    },
+    {
+      word: 'wash',
+      translation: 'мыть',
+    },
+    {
+      word: 'sell',
+      translation: 'продавать',
+    },
+    {
+      word: 'sleep',
+      translation: 'спать',
+    },
+    {
+      word: 'watch',
+      translation: 'смотреть',
+    },
+    {
+      word: 'build',
+      translation: 'строить',
+    },
+    {
+      word: 'eat',
+      translation: 'есть',
+    },
+    {
+      word: 'teach',
+      translation: 'учиться',
+    }
+  ],
 ]
 
 ]
