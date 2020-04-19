@@ -1,14 +1,19 @@
 import off from '../scripts/OffMode'
 
-const selectedSection = (event) => {
+const hideOtherBlocks = () => {
   const allTd = Array.from(document.getElementsByClassName('td'))
   allTd.map((td) => td.classList.remove('td'))
+  const sections = Array.from(document.getElementsByClassName('section'))
+  sections.map((section) => section.classList.add('hidden'))
+}
+
+const selectedSection = (event) => {
+  hideOtherBlocks()
   event.target.classList.add('td')
   const menuBtn = document.getElementsByClassName('menu openMenu')
-  const sections = Array.from(document.getElementsByClassName('section'))
   document.getElementsByClassName('main-page')[0].classList.add('hidden')
+  document.getElementsByClassName('statistics')[0].classList.add('hidden')
   menuBtn[0].classList.remove('openMenu')
-  sections.map((section) => section.classList.add('hidden'))
   document.getElementsByClassName(event.target.innerText.replace(/\s/igu, '-'))[0].classList.remove('hidden')
   off(false)
 }
