@@ -1,6 +1,7 @@
 import getAllSpan from '../../scripts/GetAllSpan'
 import hideMenu from '../../scripts/hideMenu'
 import player from '../../scripts/audioPlayer'
+import searchSection from '../../scripts/SearchActiveSection'
 import stat from '../../scripts/LocalStatistics'
 import used from '../../scripts/Used'
 
@@ -19,6 +20,8 @@ const playAudio = (event) => {
   if (!document.getElementsByClassName('main-content')[0].classList[1]) {
     player(currentSection, currentCard)
     stat(currentSection.replace(/\s/igu, '-'), event.target.classList, ['train', null])
+    player(searchSection().replace(/-/igu, ' '), currentCard)
+    stat(searchSection().replace(/\s/igu, '-'), currentClick, ['train', null])
   }
 }
 
@@ -53,7 +56,6 @@ const removeCardAnimation = (event) => {
 
 const gameCard = (card, word) => {
   card.appendChild(used())
-  card.addEventListener('click', (event) => addCardAnimation(event, word))
   card.addEventListener('mouseleave', (event) => removeCardAnimation(event, word))
   card.addEventListener('click', (event) => playAudio(event))
 
